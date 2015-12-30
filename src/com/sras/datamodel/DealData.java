@@ -4,22 +4,28 @@ import java.util.Date;
 
 public class DealData extends WithId {
 
-	long categoryId;
-	long storeId;
-	String location;
-	String title;
-	String description1;
-	String description2;
-	String code;
-	String stepsToConsume;
-	long viewCount;
-	Boolean isActive;
-	String dealImage;
-	Date expiryDate;
-	Date createDate;
-	Date updateDate;
-	String createdBy;
-	String subCategoryIds;
+	public long categoryId;
+	public long storeId;
+	public String location;
+	public String title;
+	public String description1;
+	public String description2;
+	public String code;
+	public String stepsToConsume;
+	public long viewCount;
+	public Boolean isActive;
+	public String dealImage;
+	public Date expiryDate;
+	public Date createDate;
+	public Date updateDate;
+	public String createdBy;
+	
+	//Non-persistent columns
+	public String subCategoryIds;
+	public String storeName;
+	public String storeUrl;
+	public String category;
+	public String subCategory;
 
 	public String getLocation() {
 		return location;
@@ -147,5 +153,37 @@ public class DealData extends WithId {
 
 	public void setSubCategoryIds(String subCategoryIds) {
 		this.subCategoryIds = subCategoryIds;
+	}
+
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public String getStoreUrl() {
+		return storeUrl;
+	}
+
+	public void setStoreUrl(String storeUrl) {
+		this.storeUrl = storeUrl;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(String subCategory) {
+		this.subCategory = subCategory;
 	}
 }

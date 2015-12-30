@@ -3,18 +3,18 @@ package com.sras.datamodel;
 import java.util.Date;
 
 public class StoreData extends WithId {
-	String name;
-	String imageName;
-	String descritpion;
-	String url;
-	Boolean isPopular;
-	String location;
-	Boolean isOnline;
-	Long viewCount;
-	String geoLocation;
-	Date createDate;
-	Date updateDate;
-	String createdBy;
+	public String name;
+	public String imageName;
+	public String descritpion;
+	public String url;
+	public Boolean isPopular;
+	public String location;
+	public Boolean isOnline;
+	public Long viewCount;
+	public String geoLocation;
+	public Date createDate;
+	public Date updateDate;
+	public String createdBy;
 
 	public Long getViewCount() {
 		return viewCount;

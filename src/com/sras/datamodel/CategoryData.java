@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class CategoryData extends WithId {
 
-	String name;
-	long parentId = -1;
-	String descritpion;
-	String imageName;
-	Long viewCount;
-	Date createDate;
-	Date updateDate;
-	String createdBy;
+	public String name;
+	public long parentId = -1;
+	public String descritpion;
+	public String imageName;
+	public Long viewCount;
+	public Date createDate;
+	public Date updateDate;
+	public String createdBy;
 
 	public String getName() {
 		return name;
