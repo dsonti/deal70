@@ -221,6 +221,7 @@ public class CategoryDao extends BaseDao {
 		category.setCreateDate(rst.getDate(CREATE_DATE));
 		category.setUpdateDate(rst.getDate(UPDATE_DATE));
 		category.setCreatedBy(rst.getString(CREATED_BY));
+		category.setLoaded(true);
 		return category;
 	}
 

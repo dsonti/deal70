@@ -236,4 +236,6 @@ public abstract class BaseDao {
 	public static final String AND = " and ";
 	public static final String OR = " or ";
 	public static final String SELECT = " select ";
+	public static final String ORDER_BY = " order by ";
+
 }

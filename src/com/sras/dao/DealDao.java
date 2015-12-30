@@ -127,6 +127,7 @@ public class DealDao extends BaseDao {
 				bindVars.add(SQLValue.String(deal.getTitle()));
 			}
 
+			sql += ORDER_BY + "`UPDATE_DATE` desc ";
 			logger.debug("QUERY - Loading Store :" + sql);
 			rst = executeQuery(sql, bindVars);
 			ArrayList<DataModel> deals = new ArrayList<DataModel>();
@@ -262,6 +263,7 @@ public class DealDao extends BaseDao {
 		deal.setExpiryDate(rst.getDate(EXPIRY_DATE));
 		deal.setUpdateDate(rst.getDate(UPDATE_DATE));
 		deal.setCreatedBy(rst.getString(CREATED_BY));
+		deal.setLoaded(true);
 		return deal;
 	}
 

@@ -215,6 +215,7 @@ public class StoreDao extends BaseDao {
 		store.setCreateDate(rst.getDate(CREATE_DATE));
 		store.setUpdateDate(rst.getDate(UPDATE_DATE));
 		store.setCreatedBy(rst.getString(CREATED_BY));
+		store.setLoaded(true);
 		return store;
 	}
 
