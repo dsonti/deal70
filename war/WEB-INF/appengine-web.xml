@@ -22,10 +22,13 @@
   <!-- Configure java.util.logging -->
   <system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/log4j.properties"/>
+    <property name="cloudsql.url" value="jdbc:google:mysql://deal70-1146:deal70/deal70db?user=root"/>
+    <property name="cloudsql.url.dev" value="jdbc:mysql://127.0.0.1:3306/deal70db?user=root"/>
   </system-properties>
 
   <async-session-persistence enabled="true" />
   <sessions-enabled>true</sessions-enabled>
+  <use-google-connector-j>true</use-google-connector-j>
   
   <!--
     HTTP Sessions are disabled by default. To enable HTTP sessions specify:
