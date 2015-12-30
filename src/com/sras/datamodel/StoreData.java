@@ -12,7 +12,7 @@ public class StoreData extends WithId {
 	Boolean isOnline;
 	Long viewCount;
 	String geoLocation;
-	Date createdDate;
+	Date createDate;
 	Date updateDate;
 	String createdBy;
 
@@ -96,12 +96,13 @@ public class StoreData extends WithId {
 		this.isOnline = isOnline;
 	}
 
-	public Date getCreatedDate() {
-		return createdDate;
+
+	public Date getCreateDate() {
+		return createDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
 	}
 
 	public String getCreatedBy() {

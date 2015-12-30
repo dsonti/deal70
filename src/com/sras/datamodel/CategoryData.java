@@ -5,7 +5,7 @@ import java.util.Date;
 public class CategoryData extends WithId {
 
 	String name;
-	String subCatName;
+	long parentId = -1;
 	String descritpion;
 	String imageName;
 	Long viewCount;
@@ -21,12 +21,12 @@ public class CategoryData extends WithId {
 		this.name = name;
 	}
 
-	public String getSubCatName() {
-		return subCatName;
+	public long getParentId() {
+		return parentId;
 	}
 
-	public void setSubCatName(String subCatName) {
-		this.subCatName = subCatName;
+	public void setParentId(long parentId) {
+		this.parentId = parentId;
 	}
 
 	public String getDescritpion() {

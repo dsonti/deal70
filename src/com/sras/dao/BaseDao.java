@@ -158,8 +158,9 @@ public abstract class BaseDao {
 	protected int executeUpdate(String sql, Collection<SQLValue> bindVars)
 			throws DataModelException, SQLException, TMException {
 		PreparedStatement statement = null;
+		Connection connection = null;
 		try {
-			Connection connection = getConnection();
+			connection = getConnection();
 			statement = connection.prepareStatement(sql);
 			if (bindVars != null)
 				bindVariables(statement, bindVars.toArray());
@@ -170,6 +171,7 @@ public abstract class BaseDao {
 			if (statement != null)
 				statement.close();
 			statement = null;
+			closeConnection(connection);
 		}
 	}
 

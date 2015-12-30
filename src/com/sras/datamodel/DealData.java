@@ -6,16 +6,28 @@ public class DealData extends WithId {
 
 	long categoryId;
 	long storeId;
+	String location;
 	String title;
 	String description1;
 	String description2;
 	String code;
 	String stepsToConsume;
-	String viewCount;
-	String isActive;
+	long viewCount;
+	Boolean isActive;
 	String dealImage;
 	Date expiryDate;
-	Date submittedDate;
+	Date createDate;
+	Date updateDate;
+	String createdBy;
+	String subCategoryIds;
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	public long getCategoryId() {
 		return categoryId;
@@ -73,19 +85,19 @@ public class DealData extends WithId {
 		this.stepsToConsume = stepsToConsume;
 	}
 
-	public String getViewCount() {
+	public long getViewCount() {
 		return viewCount;
 	}
 
-	public void setViewCount(String viewCount) {
+	public void setViewCount(long viewCount) {
 		this.viewCount = viewCount;
 	}
 
-	public String getIsActive() {
+	public Boolean getIsActive() {
 		return isActive;
 	}
 
-	public void setIsActive(String isActive) {
+	public void setIsActive(Boolean isActive) {
 		this.isActive = isActive;
 	}
 
@@ -105,11 +117,35 @@ public class DealData extends WithId {
 		this.expiryDate = expiryDate;
 	}
 
-	public Date getSubmittedDate() {
-		return submittedDate;
+	public Date getCreateDate() {
+		return createDate;
 	}
 
-	public void setSubmittedDate(Date submittedDate) {
-		this.submittedDate = submittedDate;
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getSubCategoryIds() {
+		return subCategoryIds;
+	}
+
+	public void setSubCategoryIds(String subCategoryIds) {
+		this.subCategoryIds = subCategoryIds;
 	}
 }

@@ -43,7 +43,7 @@ public class CategoryDao extends BaseDao {
 			Collection<SQLValue> bindVars = new ArrayList<SQLValue>();
 
 			bindVars.add(SQLValue.String(category.getName()));
-			bindVars.add(SQLValue.String(category.getSubCatName()));
+			bindVars.add(SQLValue.Long(category.getParentId()));
 			bindVars.add(SQLValue.String(category.getDescritpion()));
 			bindVars.add(SQLValue.String(category.getImageName()));
 			bindVars.add(SQLValue.Long(category.getViewCount()));
@@ -71,7 +71,7 @@ public class CategoryDao extends BaseDao {
 			Collection<SQLValue> bindVars = new ArrayList<SQLValue>();
 
 			bindVars.add(SQLValue.String(category.getName()));
-			bindVars.add(SQLValue.String(category.getSubCatName()));
+			bindVars.add(SQLValue.Long(category.getParentId()));
 			bindVars.add(SQLValue.String(category.getDescritpion()));
 			bindVars.add(SQLValue.String(category.getImageName()));
 			bindVars.add(SQLValue.Long(category.getViewCount()));
@@ -139,9 +139,9 @@ public class CategoryDao extends BaseDao {
 				sql += AND + "`NAME` = ? ";
 				bindVars.add(SQLValue.String(category.getName()));
 			}
-			if (category.getSubCatName() != null) {
-				sql += AND + "`SUB_CAT_NAME` = ? ";
-				bindVars.add(SQLValue.String(category.getSubCatName()));
+			if (category.getParentId() >= 0) {
+				sql += AND + "`PARENT_ID` = ? ";
+				bindVars.add(SQLValue.Long(category.getParentId()));
 			}
 			logger.debug("QUERY - Loading Category :" + sql);
 			return executeUpdate(sql, bindVars);
@@ -170,7 +170,10 @@ public class CategoryDao extends BaseDao {
 				sql += AND + "`NAME` = ? ";
 				bindVars.add(SQLValue.String(category.getName()));
 			}
-
+			if (category.getParentId() >= 0) {
+				sql += AND + "`SUB_CAT_NAME` = ? ";
+				bindVars.add(SQLValue.Long(category.getParentId()));
+			}
 			logger.debug("QUERY - Loading Category :" + sql);
 			rst = executeQuery(sql, bindVars);
 
@@ -211,7 +214,7 @@ public class CategoryDao extends BaseDao {
 			logger.error(e.getMessage(), e);
 		}
 		category.setName(rst.getString(NAME));
-		category.setSubCatName(rst.getString(SUB_CAT_NAME));
+		category.setParentId(rst.getLong(PARENT_ID));
 		category.setDescritpion(rst.getString(DESCRIPTION));
 		category.setImageName(rst.getString(IMG_NAME));
 		category.setViewCount(rst.getLong(VIEW_COUNT));
@@ -223,12 +226,12 @@ public class CategoryDao extends BaseDao {
 
 	public static final String READ_CATEGORY = "SELECT * FROM `CATEGORY_DATA` WHERE 1=1 ";
 	public static final String DELETE_CATEGORY = "DELETE FROM `CATEGORY_DATA` WHERE 1=1 ";
-	public static final String UPDATE_CATEGORY = "UPDATE `CATEGORY_DATA` SET `NAME` = ? ,`SUB_CAT_NAME` = ? ,"
+	public static final String UPDATE_CATEGORY = "UPDATE `CATEGORY_DATA` SET `NAME` = ? ,`PARENT_ID` = ? ,"
 			+ "`DESCRIPTION` = ? ,`IMG_NAME` = ? ,`VIEW_COUNT` = ? ,`CREATE_DATE` = ? ,`UPDATE_DATE` = ? ,`CREATED_BY` = ? WHERE `ID` = ?";
-	public static final String CREATE_CATEGORY = "INSERT INTO `CATEGORY_DATA` (`NAME`,`SUB_CAT_NAME`,`DESCRIPTION`,`IMG_NAME`,`VIEW_COUNT`,`CREATE_DATE`,`UPDATE_DATE`,`CREATED_BY`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	public static final String CREATE_CATEGORY = "INSERT INTO `CATEGORY_DATA` (`NAME`,`PARENT_ID`,`DESCRIPTION`,`IMG_NAME`,`VIEW_COUNT`,`CREATE_DATE`,`UPDATE_DATE`,`CREATED_BY`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 	public static final String NAME = "NAME";
-	public static final String SUB_CAT_NAME = "SUB_CAT_NAME";
+	public static final String PARENT_ID = "PARENT_ID";
 	public static final String DESCRIPTION = "DESCRIPTION";
 	public static final String IMG_NAME = "IMG_NAME";
 	public static final String VIEW_COUNT = "VIEW_COUNT";
