@@ -445,11 +445,14 @@ public class ControllerServlet extends VelocityServlet {
 	}
 
 	private boolean pageDoesNotRequireLogin(String page) {
+		return true;
+		/*
 		return page != null
 				&& (page.equalsIgnoreCase("copyright")
 						|| page.equalsIgnoreCase("login")
 						|| page.equalsIgnoreCase("logout") || page
 							.equalsIgnoreCase("signup"));
+		*/
 	}
 
 	@Override

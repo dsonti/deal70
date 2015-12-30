@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-		#set ($pageTitle="Home")
+	#set ($pageTitle="Home")
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile Specific
+    ========================================================================= -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		#includeJQueryJs()
-		#includeBootstrapCss()
-		#includeBootstrapJs()
-		#includeUtilitiesJs()
-	</head>
+    <!-- Title Tag
+    ========================================================================= -->
+    <title>WP Coupon - An Advanded Coupon Codes and Deals Template</title>
+
+    <!-- Browser Specical Files
+    ========================================================================= -->
+    <!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- Site Favicon
+    ========================================================================= -->
+    <link rel="shortcut icon" href="#" title="Favicon" />
+
+    <!-- WP HEAD
+    ========================================================================= -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="assets/css/semantic.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Header JS -->
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
+
+    <script src="js/deal70.js"></script>
+
+    <!-- PLUGIN CSS -->
+
+    <link rel="stylesheet" href="assets/ST-User/css/style.css">
+
+</head>
 	<body>
 		<div class="container">
 			#if($showHeader)

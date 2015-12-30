@@ -1,20 +1,712 @@
-<div class="hero-unit navbar navbar-inner shadow">
-	<!-- <h1>Click to Buy!</h1> -->
-	<p>This site is under construction.</p>
-	<p>Remote Host Name: $hostName</p>
-	<p>
-		<a class="btn btn-primary btn-large" id="learnmore">Learn more &raquo;</a>
-	</p>
-	<div id="ajaxdiv"></div>
-	<p><a href="${servletPageWithAction}error">Click here</a> to go to error page.</p>
-</div>
+    <div id="content" class="site-content">
+        <div id="content-wrap" class="container right-sidebar">
 
-#ajaxrequest("#learnmore" "${servletPageWithAjaxAction}Home" "GET" "renderui")
+            <div id="home-slider" class="wpb_content_element">
+                <div class="home-slider-wrapper shadow-box">
+                    <div class="slideshow home-slider">
+                        <div class="slideshow_item">
+                            <a href="#"><img src="thumb/slider/slider1.jpg" alt=""></a>
+                        </div>
+                        <div class="slideshow_item">
+                            <a href="#"><img src="thumb/slider/slider2.png" alt=""></a>
+                        </div>
+                    </div><!-- END .slideshow -->
+                </div><!-- END .home-slideshow-wrapper -->
+            </div><!-- END #home-slider -->
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    jQuery(".slideshow").owlCarousel({
+                        navigation : true, // Show next and prev buttons
+                        navigationText : ['<img src="assets/images/arrow-left.png">','<img src="assets/images/arrow-right.png">'],
+                        //pagination : true,
+                        //paginationNumbers: true,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
+                        singleItem: true,
+                        autoPlay: true,
+                        stopOnHover: true
+                        // "singleItem:true" is a shortcut for:
+                        // items : 1,
+                        // itemsDesktop : false,
+                        // itemsDesktopSmall : false,
+                        // itemsTablet: false,
+                        // itemsMobile : false
+                    });
+                });
+            </script>
+            <section id="popular-stores-wrapper" class="wpb_content_element">
+                <h2 class="section-heading">Featured Stores</h2>
+                <div class="popular-stores stores-thumbs shadow-box">
+                    <div class="store-carousel">
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/religion.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Religion.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/infinitygroup.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Infinitygroup.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/athleteform.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Athleteform.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/nature.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Nature.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/scribble.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Scribble.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/vientohotel.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">VientoHotel.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/infinitygroup.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Infinitygroup.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/hostingco.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Hostingco.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/starlight.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Starlight.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/nature.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Nature.com</a></div>
+                        </div>
+                        <div class="column">
+                            <div class="store-thumb">
+                                <a href="single_store.html"><img src="thumb/stores/udemy.png" alt=""></a>
+                            </div>
+                            <div class="store-name"><a href="single_store.html">Udemy.com</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script type="text/javascript">
+                jQuery(document).ready(function() {
+                    jQuery(".store-carousel").owlCarousel({
+                        navigation : true, // Show next and prev buttons
+                        navigationText : ['<img src="assets/images/arrow-left.png">','<img src="assets/images/arrow-right.png">'],
+                        //pagination : true,
+                        //paginationNumbers: true,
+                        slideSpeed : 300,
+                        paginationSpeed : 400,
+                        rewindNav: true,
+                        //singleItem: false,
+                        autoPlay: true,
+                        stopOnHover: true,
+                        // "singleItem:true" is a shortcut for:
+                        items : 5,
+                        //itemsDesktop : 5,
+                        itemsDesktopSmall : 4,
+                        //itemsTablet: 3,
+                        itemsMobile : 2
+                    });
+                });
+            </script>
 
-<script>
-	function renderui(data)
-	{
-		$("#ajaxdiv").empty();
-		$("#ajaxdiv").append(data);
-	}
-</script>
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main">
+
+                    <section id="store-listings-wrapper" class="wpb_content_element">
+                        <h2 class="section-heading">Latest Coupon Codes and Deals</h2>
+                        <div class="store-listings">
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/vientohotel.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">VientoHotel Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Up To 40% - 70% Off January Savings Event</a></h3>
+                                    <div class="coupon-des">
+                                        Save with free shipping and free returns on all orders of $99. <span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span>
+                                        <div class="coupon-des-full">Some exclusions apply. No code required. Limited time offer.<a class="des-less" href="#">Less<i class="angle up icon"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-button coupon-code" data-aff-url="http://google.com">
+                                        <span class="code-text">EMIAXHGF</span>
+                                        <span class="get-code">Get Code</span>
+                                    </a>
+                                    <div class="exp-text">Expires 6/25/2016 <a title="Save This Coupon" href="#" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_1" class="ui modal coupon-modal coupon-code-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/vientohotel.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Up To 40% Off January Savings Event</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Copy this code and use at checkout</p>
+                                        <div class="modal-code">
+                                            <span class="code-text">EMIAXHGF</span>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary go-store">Go To Store<i class="angle right icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/scribble.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">Scribble Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Scribble Education Store: Save Up To 10% + Free Shipping</a></h3>
+                                    <div class="coupon-des">Save up to 45% on hundreds of electronics items on sale.</div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-deal coupon-button" data-aff-url="http://google.com">Get Deal <i class="shop icon"></i></a>
+                                    <div class="exp-text">Expires 6/25/2016 <a href="#" title="Save This Coupon" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_2" class="ui modal coupon-modal coupon-deal-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/scribble.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Scribble Education Store: Save Up To 10% + Free Shipping</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Deal Activated, no coupon code required!</p>
+                                        <div class="modal-code">
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary deal-actived">Go To Store<i class="angle right icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/nature.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">Nature Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Up To 75% Off Women's Shoe Sale & Clearance</a></h3>
+                                    <div class="coupon-des">
+                                        Save with free shipping and free returns on all orders of $99. <span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span>
+                                        <div class="coupon-des-full">Some exclusions apply. No code required. Limited time offer. Just follow this link to redeem offer. <a class="des-less" href="#">Less<i class="angle up icon"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-print coupon-button">Print Coupon <i class="print icon"></i></a>
+                                    <div class="exp-text">Expires 6/25/2016 <a title="Coupon Saved" href="#" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_3" class="ui modal coupon-modal coupon-code-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/nature.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Up To 75% Off Women's Shoe Sale & Clearance</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Print this coupon and redeem it in-store</p>
+                                        <div class="modal-code">
+                                            <a href="#"><img src="assets/images/print.png" alt=""></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary go-store">Print Now <i class="print icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/religion.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">Religion Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Up To 40% - 70% Off January Savings Event</a></h3>
+                                    <div class="coupon-des">
+                                        Save with free shipping and free returns on all orders of $99. <span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span>
+                                        <div class="coupon-des-full">Some exclusions apply. No code required. Limited time offer.<a class="des-less" href="#">Less<i class="angle up icon"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-button coupon-code" data-aff-url="http://google.com">
+                                        <span class="code-text">EMIAXHGF</span>
+                                        <span class="get-code">Get Code</span>
+                                    </a>
+                                    <div class="exp-text">Expires 6/25/2016 <a title="Save This Coupon" href="#" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_4" class="ui modal coupon-modal coupon-code-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/religion.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Up To 40% Off January Savings Event</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Copy this code and use at checkout</p>
+                                        <div class="modal-code">
+                                            <span class="code-text">EMIAXHGF</span>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary go-store">Go To Store<i class="angle right icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/infinitygroup.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">Infinity Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Infinitygroup Store: Save Up To 10% + Free Shipping</a></h3>
+                                    <div class="coupon-des">Save up to 45% on hundreds of electronics items on sale.</div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-deal coupon-button" data-aff-url="http://google.com">Get Deal <i class="shop icon"></i></a>
+                                    <div class="exp-text">Expires 6/25/2016 <a href="#" title="Save This Coupon" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_5" class="ui modal coupon-modal coupon-deal-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/infinitygroup.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Infinitygroup Store: Save Up To 10% + Free Shipping</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Deal Activated, no coupon code required!</p>
+                                        <div class="modal-code">
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary deal-actived">Go To Store<i class="angle right icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="store-listing-item shadow-box">
+                                <div class="store-thumb-link">
+                                    <div class="store-thumb">
+                                        <a href="single_store.html"><img src="thumb/stores/athleteform.png" alt=""></a>
+                                    </div>
+                                    <div class="store-name"><a href="single_store.html">Athleteform Coupons <i class="angle right icon"></i></a></div>
+                                </div>
+                                <div class="latest-coupon">
+                                    <h3 class="coupon-title"><a href="#">Up To 75% Off Women's Shoe Sale & Clearance</a></h3>
+                                    <div class="coupon-des">
+                                        Save with free shipping and free returns on all orders of $99. <span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span>
+                                        <div class="coupon-des-full">Some exclusions apply. No code required. Limited time offer. Just follow this link to redeem offer. <a class="des-less" href="#">Less<i class="angle up icon"></i></a></div>
+                                    </div>
+                                </div>
+                                <div class="coupon-detail coupon-button-type">
+                                    <a href="#" class="coupon-print coupon-button">Print Coupon <i class="print icon"></i></a>
+                                    <div class="exp-text">Expires 6/25/2016 <a title="Coupon Saved" href="#" class="coupon-save"><i class="empty star icon"></i></a></div>
+                                </div>
+
+                                <!-- Coupon Modal -->
+                                <div id="coupon_id_6" class="ui modal coupon-modal coupon-code-modal">
+                                    <div class="coupon-header clearfix">
+                                        <div class="coupon-store-thumb">
+                                            <img src="thumb/stores/athleteform.png" alt="">
+                                        </div>
+                                        <div class="coupon-title">Up To 75% Off Women's Shoe Sale & Clearance</div>
+                                        <span class="close"></span>
+                                    </div>
+                                    <div class="coupon-content">
+                                        <p class="coupon-type-text">Print this coupon and redeem it in-store</p>
+                                        <div class="modal-code">
+                                            <a href="#"><img src="assets/images/print.png" alt=""></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="user-ratting ui icon basic buttons">
+                                                <div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div>
+                                                <div class="ui button icon-popup" data-offset="0" data-content="It didn't work" data-variation="inverted"><i class="frown icon"></i></div>
+                                                <div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div>
+                                            </div>
+                                            <a href="http://google.com" target="_blank" class="ui button btn btn_secondary go-store">Print Now <i class="print icon"></i></a>
+                                        </div>
+                                        <div class="clearfix">
+                                            <span class="user-ratting-text">Did it work?</span>
+                                            <span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span>
+                                        </div>
+                                        <div class="coupon-popup-detail">
+                                            <p>Enter this code at checkout to get 30% discount on all orders with Master's Charge card. Get free shipping on orders $50 or more. Restrictions may apply.  <p>
+                                            <p><strong>Expires</strong>: Feb 26, 2016</p>
+                                            <p><strong>Submitted</strong>: a week ago</p>
+                                        </div>
+                                    </div>
+                                    <div class="coupon-footer">
+                                        <ul class="clearfix">
+                                            <li><span><i class="wifi icon"></i> 268 People Used, 16 Today</span></li>
+                                            <li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li>
+                                        </ul>
+                                        <div class="share-modal-popup ui popup">
+                                            <a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a>
+                                            <a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a>
+                                            <a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a>
+                                            <a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>						</section>
+
+                </main><!-- #main -->
+            </div><!-- #primary -->
+
+            <div id="secondary" class="widget-area sidebar">
+                <aside class="widget widget_newsletter">
+                    <h4 class="widget-title">Don't miss another great deal!</h4>
+                    <div class="newsletter-box-wrapper shadow-box">
+                        <form id="newsletter-box-widget">
+                            <div class="ui action left icon input">
+                                <input placeholder="Enter your email ..." type="text">
+                                <i class="mail outline icon"></i>
+                                <div class="ui button">Subscribe</div>
+                            </div>
+                            <!-- <div class="ui fluid icon input">
+                                <input type="text" placeholder="Enter your email ...">
+                                <i class="mail outline icon"></i>
+                            </div> -->
+                            <div class="clear"></div>
+                            <div class="newsletter-text">You can opt out of our newsletters at any time. See our <a href="#">privacy policy</a>.</div>
+                            <div class="sidebar-social">
+                                <a class="ui circular icon button"><i class="facebook icon"></i></a>
+                                <a class="ui circular icon button"><i class="twitter icon"></i></a>
+                                <a class="ui circular icon button"><i class="linkedin icon"></i></a>
+                                <a class="ui circular icon button"><i class="google plus icon"></i></a>
+                                <a class="ui circular icon button"><i class="flickr icon"></i></a>
+                                <a class="ui circular icon button"><i class="youtube play icon"></i></a>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
+                <aside class="widget widget_popular_stores">
+                    <h4 class="widget-title">Popular Stores</h4>
+                    <div class="widget-content shadow-box">
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/religion.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/nature.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/starlight.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/vientohotel.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/athleteform.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="store-thumb">
+                                    <a href="single_store.html" class="ui image middle aligned">
+                                        <img src="thumb/stores/scribble.png" alt="">
+                                    </a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </aside>
+                <aside class="widget widget_categories">
+                    <h4 class="widget-title">Popular Categories</h4>
+                    <div class="widget-content shadow-box">
+                        <ul>
+                            <li><a href="category.html">Apparel</a></li>
+                            <li><a href="category.html">Accessories</a></li>
+                            <li><a href="category.html">Entertainment </a></li>
+                            <li><a href="category.html">Automotive</a></li>
+
+                            <li><a href="category.html">Personal Care</a></li>
+                            <li><a href="category.html">Books</a></li>
+                            <li><a href="category.html">Beverage</a></li>
+                            <li><a href="category.html">Business</a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <aside class="widget widget_text">
+                    <div class="ads-area">
+                        <div class="ui horizontal divider">Advertisement</div>
+                        <a href="#"><img src="assets/images/300.png" alt=""></a>
+                    </div>
+                </aside>
+            </div><!-- #secondary -->
+            <section class="list-categories-wrapper wpb_content_element">
+                <h2 class="section-heading">Most viewed categories</h2>
+                <div class="list-categories shadow-box">
+                    <ul class="clearfix">
+                        <li><a href="category.html"><span class="coupon-count">28</span>Apparel</a></li>
+                        <li><a href="category.html"><span class="coupon-count">12</span>Accessories</a></li>
+                        <li><a href="category.html"><span class="coupon-count">10</span>Entertainment </a></li>
+                        <li><a href="category.html"><span class="coupon-count">02</span>Automotive</a></li>
+
+                        <li><a href="category.html"><span class="coupon-count">11</span>Personal Care</a></li>
+                        <li><a href="category.html"><span class="coupon-count">15</span>Books</a></li>
+                        <li><a href="category.html"><span class="coupon-count">32</span>Beverage</a></li>
+                        <li><a href="category.html"><span class="coupon-count">22</span>Business</a></li>
+
+                        <li><a href="category.html"><span class="coupon-count">26</span>Foods</a></li>
+                        <li><a href="category.html"><span class="coupon-count">28</span>Groceries</a></li>
+                        <li><a href="category.html"><span class="coupon-count">88</span>Sports</a></li>
+                        <li><a href="category.html"><span class="coupon-count">66</span>Home & Garden </a></li>
+
+                        <li><a href="category.html"><span class="coupon-count">16</span>Education </a></li>
+                        <li><a href="category.html"><span class="coupon-count">28</span>Training</a></li>
+                        <li><a href="category.html"><span class="coupon-count">64</span>Electronics</a></li>
+                        <li><a href="category.html"><span class="coupon-count">16</span>Shoes</a></li>
+
+                    </ul>
+                </div>
+            </section>
+
+        </div> <!-- /#content-wrap -->
+
+        <section class="coupon-app-wrapper">
+            <div class="container">
+                <div class="coupon-app">
+                    <div class="ui relaxed fitted stackable grid">
+
+                        <div class="eight wide column clearfix">
+                            <img class="fleft" src="thumb/app.png" alt="">
+                        </div>
+                        <div class="eight wide column clearfix">
+                            <h2>Never Forget A Coupon Again!</h2>
+                            <p>Search the biggest database of coupons on the planet. Connect with friends and see what coupons they’re snipping. Or just browse through featured coupons from your favorite stores.</p>
+                            <a href="#" class="app-button apple-button clearfix">
+                                <div class="fleft"><i class="apple icon"></i></div>
+                                <div class="fright">
+                                    <span class="avail-text">Available on the</span>
+                                    <span class="app-service">App Store</span>
+                                </div>
+                            </a>
+                            <a href="#" class="app-button android-button clearfix">
+                                <div class="fleft"><i class="android icon"></i></div>
+                                <div class="fright">
+                                    <span class="avail-text">Available on the</span>
+                                    <span class="app-service">Android Market</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="coupon-press">
+                    <h2 class="section-heading">As Seen On</h2>
+                    <div class="text-center">
+                        <img src="assets/images/press.png" alt="">
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+    </div> <!-- END .site-content -->
