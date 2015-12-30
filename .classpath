@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="/Users/sras/Library/Mobile Documents/com~apple~CloudDocs/deal70/war/WEB-INF/lib/jsr107cache-1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/sras/Library/Mobile Documents/com~apple~CloudDocs/deal70/war/WEB-INF/lib/jta-1.1.jar"/>
 	<classpathentry kind="lib" path="/Users/sras/Library/Mobile Documents/com~apple~CloudDocs/deal70/war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="/Users/sras/Library/Mobile Documents/com~apple~CloudDocs/deal70/war/WEB-INF/lib/gson-2.5.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

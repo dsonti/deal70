@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Category;
 import org.apache.velocity.context.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sras.client.utils.Utilities;
 import com.sras.dao.DealDao;
 import com.sras.datamodel.DataModel;
@@ -39,7 +41,9 @@ public class DealCommand extends Command {
 			}
 			DealDao dao = new DealDao(deal);
 			ArrayList<DataModel> deals = dao.enumerate();
-			ctx.put("ajax_response_data", "Ajax call successful!");
+			Gson gson = new GsonBuilder().create();
+			String jsonStr = gson.toJson(deals, ArrayList.class);
+			ctx.put("ajax_response_data", jsonStr);
 		} catch (Exception e) {
 			ctx.put("ajax_response_data", "Failed while retrieving deals!!");
 
