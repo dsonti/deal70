@@ -7,7 +7,7 @@
                         <img src="assets/images/logo.png" alt="Site Logo">
                     </a>
                 </div>
-                <div class="header-highlight fleft">
+                <div class="header-highlight fleft" style="display:none">
                     <a href="#">
                         <div class="highlight-icon"><i class="fire icon"></i></div>
                         <div class="highlight-text">Heating Up</div>
@@ -47,16 +47,13 @@
                             <ul class="sub-menu">
                                 <li><a href="category_az.html">Browse by Categories</a></li>
                                 <li><a href="store_az.html">Browse by Stores</a></li>
-                                <li><a href="#"># Printable Coupons <i class="print icon"></i></a></li>
-                                <li><a href="#"># Free Shipping </a></li>
-                                <li><a href="#"># Product Deals</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><a href="#">Stores</a>
+                        <li class="menu-item-has-children"><a href="${servletPageWithAction}stores">Stores</a>
                             <div class="nav-toggle-subarrow"><i class="plus icon"></i></div>
                             <ul class="sub-menu">
-                                <li><a href="single_store.html">Store Single</a></li>
-                                <li><a href="store_az.html">Stores Index A-Z</a></li>
+                                <li><a href="/store?id=">Store Single</a></li>
+                                <li><a href="/store?id=">Stores Index A-Z</a></li>
                             </ul>
                         </li>
                         <li class="menu-item-has-children"><a href="#">Categories</a>

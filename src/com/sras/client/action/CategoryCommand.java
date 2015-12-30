@@ -40,7 +40,8 @@ public class CategoryCommand extends Command {
 				if (cData.getParentId() < 0) {
 					subCategoriesMap.put(cData.getId(), "");
 				} else {
-					String subCatList = subCategoriesMap.get(cData.getParentId());
+					String subCatList = subCategoriesMap.get(cData
+							.getParentId());
 					if (subCatList != null) {
 						subCatList += ", " + cData.getId();
 					} else {
@@ -60,6 +61,10 @@ public class CategoryCommand extends Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public static Hashtable<Long, CategoryData> getCategories() {
+		return categoriesMap;
 	}
 
 	public CategoryCommand(HttpServletRequest request,

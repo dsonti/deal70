@@ -50,6 +50,10 @@ public class StoreCommand extends Command {
 		}
 	}
 
+	public static Hashtable<Long, StoreData> getStores() {
+		return storesMap;
+	}
+
 	public StoreCommand(HttpServletRequest request,
 			HttpServletResponse response, Context ctx) {
 		super(request, response, ctx);

@@ -10,13 +10,16 @@
                     <div class="store-listings">
                     </div>						
             	</section>
+            	<div class="load-more wpb_content_element">
+                	<a href="#" id="loadCoupons" class="ui button btn btn_primary btn_large">Load More Deals <i class="arrow circle outline down icon"></i></a>
+            	</div>
             </main><!-- #main -->
         </div><!-- #primary -->
 
         <div id="secondary" class="widget-area sidebar">
-			#newsletter()
 			#popularStores()
 			#popularCategories()
+			#newsletter()
             #advertisement()
         </div><!-- #secondary -->
         #mostViewedCategories()

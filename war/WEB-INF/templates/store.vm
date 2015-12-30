@@ -39,8 +39,7 @@
         </div>
     </section>
     
-            <div id="content-wrap" class="container left-sidebar">
-
+    <div id="content-wrap" class="container left-sidebar">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <section class="coupon-filter">

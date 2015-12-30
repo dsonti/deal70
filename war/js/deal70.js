@@ -3,6 +3,7 @@ var getDeal = '<div class="store-listing-item shadow-box"><div class="store-thum
 var counter = 10;
 
 function getCouponCode(deal) {
+	alert(deal);
 	var code;
 	if (deal.dealType == "CODE") {
 		code = getCode;
@@ -27,6 +28,7 @@ function getCouponCode(deal) {
 }
 
 function fetchDeals(curl) {
+	alert(curl);
 	$.ajax({
 		url : curl,
 		type : "GET",

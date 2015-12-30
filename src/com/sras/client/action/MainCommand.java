@@ -10,7 +10,6 @@ import org.apache.velocity.context.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sras.client.utils.MailUtils;
 import com.sras.client.utils.Utilities;
 import com.sras.dao.DealDao;
 import com.sras.datamodel.DataModel;
@@ -26,15 +25,15 @@ public class MainCommand extends Command {
 	}
 
 	public String doAjaxGet() {
-		long storeId = Utilities.getLongFromRequest(request, "st");
-		long categoryId = Utilities.getLongFromRequest(request, "ct");
+		Long storeId = Utilities.getLongFromRequest(request, "st");
+		Long categoryId = Utilities.getLongFromRequest(request, "ct");
 		String location = request.getParameter("lc");
 		try {
 			DealData deal = new DealData();
-			if (storeId > 0) {
+			if (storeId != null && storeId.longValue() > 0) {
 				deal.setStoreId(storeId);
 			}
-			if (categoryId > 0) {
+			if (categoryId != null && categoryId.longValue() > 0) {
 				deal.setCategoryId(categoryId);
 			}
 			if (location != null && location.trim().length() > 0) {
@@ -42,12 +41,14 @@ public class MainCommand extends Command {
 			}
 			DealDao dao = new DealDao(deal);
 			ArrayList<DataModel> deals = dao.enumerate();
-			Gson gson = new GsonBuilder().create();
-			String jsonStr = gson.toJson(deals, ArrayList.class);
+			String jsonStr = "No deals available!";
+			if (deals != null && deals.size() > 0) {
+				Gson gson = new GsonBuilder().create();
+				jsonStr = gson.toJson(deals, ArrayList.class);
+			}
 			ctx.put("ajax_response_data", jsonStr);
 		} catch (Exception e) {
 			ctx.put("ajax_response_data", "Failed while retrieving deals!!");
-
 		}
 		return "ajax_template.vm";
 	}

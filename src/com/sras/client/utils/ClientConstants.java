@@ -33,8 +33,8 @@ public class ClientConstants {
 	public static final int PERSISTANCE_COOKIE_AGE = 2592000;
 	public static final String COOKIE_NAME = "6LfPgNsSAAAAAASO2ef1Y4jeOy0kvWSSfIkyVcBo";
 
-	public static final String productName = "Click to Buy";
-	public static final String productCaption = "A place where you can get the things for free of cost!";
+	public static final String productName = "Deal70";
+	public static final String productCaption = "Explore deals, atleast 70% off!!!";
 
 	public static final String SMTP_HOST = "smtp.gmail.com";
 	public static final String FROM_ADDRESS = "******@gmail.com";
