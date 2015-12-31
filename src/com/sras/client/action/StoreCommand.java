@@ -10,18 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Category;
 import org.apache.velocity.context.Context;
 
-import com.sras.client.utils.Utilities;
-import com.sras.dao.DealDao;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.sras.dao.DealViewDao;
 import com.sras.dao.StoreDao;
 import com.sras.datamodel.DataModel;
-import com.sras.datamodel.DealData;
+import com.sras.datamodel.DealViewData;
 import com.sras.datamodel.StoreData;
 import com.sras.datamodel.exceptions.DataModelException;
 import com.sras.datamodel.exceptions.TMException;
 
 public class StoreCommand extends Command {
 
-	private static String TEMPLATE_NAME = "stores.vm";
+	private String TEMPLATE_NAME = "store.vm";
 	protected static Category log = Category.getInstance(MainCommand.class);
 	static Hashtable<Long, StoreData> storesMap = new Hashtable<Long, StoreData>();
 
@@ -60,25 +61,44 @@ public class StoreCommand extends Command {
 	}
 
 	public String doAjaxGet() {
-		long storeId = Utilities.getLongFromRequest(request, "st");
 		try {
-			DealData deal = new DealData();
-			if (storeId > 0) {
-				deal.setStoreId(storeId);
+			String storeName = request.getParameter("name");
+			DealViewData deal = new DealViewData();
+			deal.setStoreName(storeName);
+			DealViewDao dao = new DealViewDao(deal);
+			ArrayList<DataModel> deals = dao.enumerate();
+			String jsonStr = "No deals available!";
+			if (deals != null && deals.size() > 0) {
+				Gson gson = new GsonBuilder().create();
+				jsonStr = gson.toJson(deals, ArrayList.class);
 			}
-			DealDao dao = new DealDao(deal);
-			ArrayList deals = dao.enumerate();
-			ctx.put("ajax_response_data", "Ajax call successful!");
+			ctx.put("ajax_response_data", jsonStr);
 		} catch (Exception e) {
 			ctx.put("ajax_response_data", "Failed while retrieving deals!!");
-
 		}
 		return "ajax_template.vm";
 	}
 
 	public String doGet() throws Exception {
-		long storeId = Utilities.getLongFromRequest(request, "st");
-		ctx.put("storeData", storesMap.get(storeId));
+		String requestURI = (String) ctx.get("requestURI");
+		int i = requestURI.indexOf('/');
+		String storeName = null;
+		if (i > 0 && requestURI.indexOf("store") == 0) {
+			storeName = requestURI.substring(i + 1);
+			StoreData stData = new StoreData();
+			stData.setName(storeName);
+			StoreDao stDao = new StoreDao(stData);
+			stData = (StoreData) stDao.read();
+			if(stData != null)
+			{
+				ctx.put("storeData", stData);
+				TEMPLATE_NAME = "store.vm";
+			}
+			else
+			{
+				TEMPLATE_NAME = "error.vm";
+			}
+		}
 		return TEMPLATE_NAME;
 	}
 

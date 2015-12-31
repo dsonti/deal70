@@ -1,32 +1,32 @@
 #macro (includeBootstrapJs)
 	#if (!$BootstrapJsIncluded)
 		#set ($BootstrapJsIncluded = true)
-		<script type="text/javascript"  src="${contextPath}/js/bootstrap.min.js"></script>
+		<script type="text/javascript"  src="$!{domainName}/js/bootstrap.min.js"></script>
 	#end
 #end
 
 #macro (includeBootstrapCss)	
 	#if (!$BootstrapCssIncluded)
 		#set ($BootstrapCssIncluded = true)	
-		<link rel="stylesheet" type="text/css" href="${contextPath}/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="${contextPath}/css/bootstrap-responsive.css">
-		<link rel="stylesheet" type="text/css" href="${contextPath}/css/validationEngine.jquery.css">
-		<link rel="stylesheet" type="text/css" href="${contextPath}/css/my.css">
+		<link rel="stylesheet" type="text/css" href="$!{domainName}/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="$!{domainName}/css/bootstrap-responsive.css">
+		<link rel="stylesheet" type="text/css" href="$!{domainName}/css/validationEngine.jquery.css">
+		<link rel="stylesheet" type="text/css" href="$!{domainName}/css/my.css">
 	#end
 #end
 
 #macro (includeJQueryJs)	
-	<script type="text/javascript" src="${contextPath}/js/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="${contextPath}/js/jquery.validationEngine.js"></script>
-	<script type="text/javascript" src="${contextPath}/js/jquery.validationEngine-en.js"></script>
+	<script type="text/javascript" src="$!{domainName}/js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="$!{domainName}/js/jquery.validationEngine.js"></script>
+	<script type="text/javascript" src="$!{domainName}/js/jquery.validationEngine-en.js"></script>
 #end
 
 #macro (includeUtilitiesJs)	
 	#if (!$UtilitiesJsIncluded)
 		#set ($UtilitiesJsIncluded = true)	
-		<script type="text/javascript" src="${contextPath}/js/Hashtable.js"></script>
-		<script type="text/javascript" src="${contextPath}/js/recaptcha_ajax.js"></script>
-		<script type="text/javascript" src="${contextPath}/js/retina.js"></script>
+		<script type="text/javascript" src="$!{domainName}/js/Hashtable.js"></script>
+		<script type="text/javascript" src="$!{domainName}/js/recaptcha_ajax.js"></script>
+		<script type="text/javascript" src="$!{domainName}/js/retina.js"></script>
 	#end
 #end
 
@@ -89,44 +89,44 @@
         <div class="widget-content shadow-box">
             <div class="ui two column grid">
                 <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/religion.png" alt="">
+                            <img src="$!{domainName}thumb/stores/religion.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/nature.png" alt="">
+                            <img src="$!{domainName}thumb/stores/nature.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/starlight.png" alt="">
+                            <img src="$!{domainName}thumb/stores/starlight.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/vientohotel.png" alt="">
+                            <img src="$!{domainName}thumb/stores/vientohotel.png" alt="">
                         </a>
                     </div>
                 </div>
                 <!-- <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/athleteform.png" alt="">
+                            <img src="$!{domainName}thumb/stores/athleteform.png" alt="">
                         </a>
                     </div>
                 </div>
                 <div class="column">
-                    <div class="store-thumb">
+                    <div class="store-$!{domainName}thumb">
                         <a href="single_store.html" class="ui image middle aligned">
-                            <img src="thumb/stores/scribble.png" alt="">
+                            <img src="$!{domainName}thumb/stores/scribble.png" alt="">
                         </a>
                     </div>
                 </div> -->
@@ -158,7 +158,7 @@
 	<aside class="widget widget_text">
         <div class="ads-area">
             <div class="ui horizontal divider">Advertisement</div>
-            <a href="#"><img src="assets/images/300.png" alt=""></a>
+            <a href="#"><img src="$!{domainName}assets/images/300.png" alt=""></a>
         </div>
     </aside>
 #end
@@ -228,10 +228,10 @@
         <div class="home-slider-wrapper shadow-box">
             <div class="slideshow home-slider">
                 <div class="slideshow_item">
-                    <a href="#"><img src="thumb/slider/slider1.jpg" alt=""></a>
+                    <a href="#"><img src="$!{domainName}thumb/slider/slider1.jpg" alt=""></a>
                 </div>
                 <div class="slideshow_item">
-                    <a href="#"><img src="thumb/slider/slider2.png" alt=""></a>
+                    <a href="#"><img src="$!{domainName}thumb/slider/slider2.png" alt=""></a>
                 </div>
             </div><!-- END .slideshow -->
         </div><!-- END .home-slideshow-wrapper -->
@@ -240,7 +240,7 @@
         jQuery(document).ready(function() {
             jQuery(".slideshow").owlCarousel({
                 navigation : true, // Show next and prev buttons
-                navigationText : ['<img src="assets/images/arrow-left.png">','<img src="assets/images/arrow-right.png">'],
+                navigationText : ['<img src="$!{domainName}assets/images/arrow-left.png">','<img src="$!{domainName}assets/images/arrow-right.png">'],
                 //pagination : true,
                 //paginationNumbers: true,
                 slideSpeed : 300,

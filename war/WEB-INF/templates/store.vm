@@ -1,3 +1,5 @@
+<input type="hidden" id="stname" name="stname" value="$!storeData.name">
+
 <div id="content" class="site-content">
     <section class="custom-page-header single-store-header">
         <div class="container">
@@ -6,19 +8,19 @@
                 <i class="right angle right icon divider"></i>
                 <a class="section">Stores</a>
                 <i class="right angle right icon divider"></i>
-                <div class="active section">Nature</div>
+                <div class="active section">$!storeData.name</div>
             </div>
             <div class="inner shadow-box">
                 <div class="inner-content clearfix">
                     <div class="header-thumb">
                         <div class="header-store-thumb">
-                            <a href="#"><img src="thumb/stores/nature.png" alt=""></a>
+                            <a href="#"><img src="$!{domainName}thumb/stores/$!storeData.imageName" alt="$!storeName"></a>
                         </div>
                         <a class="add-favorite" href="#"><i class="empty heart icon"></i><span>Favorite This Store</span></a>
                     </div>
                     <div class="header-content">
-                        <h1><strong>Nature </strong>Coupon Code and Deals</h1>
-                        <p> Nature is the world's largest department store with top fashion brands including Michael Kors and more - it's the place you probably think of first when you go shopping in stores or online.</p>
+                        <h1><strong>$!storeData.name </strong>Coupon Code and Deals</h1>
+                        <p> $!storeData.descritpion</p>
                         <div class="entry-share">
                             <div class="social-likes social-likes_single" data-single-title="Share">
                                 <div class="facebook" title="Share link on Facebook">Facebook</div>
@@ -55,6 +57,9 @@
                     <div class="store-listings">
                     </div><!-- END .store-listings -->						
                 </section>
+                <div class="load-more wpb_content_element">
+                	<a href="#" id="loadStoreCoupons" class="ui button btn btn_primary btn_large">Load More $!storeData.name Deals <i class="arrow circle outline down icon"></i></a>
+            	</div>
             </main><!-- #main -->
         </div><!-- #primary -->
 

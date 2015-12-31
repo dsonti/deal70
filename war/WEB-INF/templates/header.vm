@@ -3,8 +3,8 @@
         <div class="primary-header">
             <div class="container">
                 <div class="logo_area fleft">
-                    <a href="index.html" rel="home">
-                        <img src="assets/images/logo.png" alt="Site Logo">
+                    <a href="$!{domainName}" rel="home">
+                        <img src="$!{domainName}assets/images/logo.png" alt="Site Logo">
                     </a>
                 </div>
                 <div class="header-highlight fleft" style="display:none">
@@ -88,9 +88,9 @@
                                 <h4 class="menu-box-title">Recently Saved Coupons</h4>
                                 <div class="saved-coupons">
                                     <div class="saved-coupon clearfix">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="">
-                                                <img src="thumb/stores/udemy.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/udemy.png" alt="">
                                             </a>
                                         </div>
                                         <div class="coupon-text">
@@ -99,9 +99,9 @@
                                         </div>
                                     </div>
                                     <div class="saved-coupon clearfix">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="">
-                                                <img src="thumb/stores/nature.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/nature.png" alt="">
                                             </a>
                                         </div>
                                         <div class="coupon-text">
@@ -110,9 +110,9 @@
                                         </div>
                                     </div>
                                     <div class="saved-coupon clearfix">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="">
-                                                <img src="thumb/stores/starlight.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/starlight.png" alt="">
                                             </a>
                                         </div>
                                         <div class="coupon-text">
@@ -129,30 +129,30 @@
                                 <h4 class="menu-box-title">Your Favorite Stores</h4>
                                 <div class="ui two column grid">
                                     <div class="column">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="ui image middle aligned">
-                                                <img src="thumb/stores/starlight.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/starlight.png" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="column">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="ui image middle aligned">
-                                                <img src="thumb/stores/nature.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/nature.png" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="column">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="ui image middle aligned">
-                                                <img src="thumb/stores/udemy.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/udemy.png" alt="">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="column">
-                                        <div class="store-thumb">
+                                        <div class="store-$!{domainName}thumb">
                                             <a href="single_store.html" class="ui image middle aligned">
-                                                <img src="thumb/stores/vientohotel.png" alt="">
+                                                <img src="$!{domainName}thumb/stores/vientohotel.png" alt="">
                                             </a>
                                         </div>
                                     </div>

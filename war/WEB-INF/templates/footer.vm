@@ -5,7 +5,7 @@
                     <div class="six wide column">
                         <aside class="widget">
                             <div class="widget_content">
-                                <p><a href="#"><img src="assets/images/logo.png" alt=""></a></p>
+                                <p><a href="#"><img src="$!{domainName}assets/images/logo.png" alt=""></a></p>
                                 <p>Search the biggest database of coupons on the planet, <br>connect with friends with our coupon apps</p>
                                 <!-- <p>Search the biggest database of coupons on the planet. Connect with friends and see what coupons they’re snipping. Or just browse through featured coupons from your favorite stores.</p> -->
                                 <div class="clearfix">
@@ -105,14 +105,14 @@
 </div><!-- END #page -->
 
 <!-- Footer JS -->
-<script src="assets/js/config.js"></script>
+<script src="$!{domainName}assets/js/config.js"></script>
 
-<script src="assets/js/libs.js"></script>
-<script src="assets/js/libs/semantic.min.js"></script>
-<script src="assets/js/libs/owl.carousel.js"></script>
-<script src="assets/js/global.js"></script>
+<script src="$!{domainName}assets/js/libs.js"></script>
+<script src="$!{domainName}assets/js/libs/semantic.min.js"></script>
+<script src="$!{domainName}assets/js/libs/owl.carousel.js"></script>
+<script src="$!{domainName}assets/js/global.js"></script>
 
-<script src="assets/ST-User/js/user.js"></script>
+<script src="$!{domainName}assets/ST-User/js/user.js"></script>
 
 #includeUtilitiesJs()
 

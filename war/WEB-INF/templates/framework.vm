@@ -28,18 +28,29 @@
 	    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic' rel='stylesheet' type='text/css'>
 	    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	
-	    <link rel="stylesheet" href="assets/css/semantic.min.css">
-	    <link rel="stylesheet" href="style.css">
+	    <link rel="stylesheet" href="$!{domainName}assets/css/semantic.min.css">
+	    <link rel="stylesheet" href="$!{domainName}style.css">
 	
 	    <!-- Header JS -->
-	    <script src="assets/js/jquery-1.11.1.min.js"></script>
+	    <script src="$!{domainName}assets/js/jquery-1.11.1.min.js"></script>
 	
-	    <script src="js/deal70.js"></script>
+	    <script src="$!{domainName}js/deal70.js"></script>
+	    <script src="$!{domainName}js/jquery.timeago.js"></script>
+	    
 	
 	    <!-- PLUGIN CSS -->
 	
-	    <link rel="stylesheet" href="assets/ST-User/css/style.css">
+	    <link rel="stylesheet" href="$!{domainName}assets/ST-User/css/style.css">
 	
+		<style>
+			/* line 15, assets/sass/_elements.scss */
+			.primary-header {
+			  padding: 18px 0px;
+			  background: #47A987;
+			  color: rgba(255, 255, 255, 0.6);
+			}
+		</style>
+		
 	</head>
 	<body>
 		#if($showHeader)
@@ -47,7 +58,7 @@
 		#end
 		#parse($body)
 		#parse("footer.vm")
-		
+		<input type="hidden" id="domainName" name="domainName" value="$!domainName">
 		<script>
 			#if ($pageTitle)
 				#set ($singleLineTitle = $Formatter.makeSingleLine($pageTitle))

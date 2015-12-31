@@ -187,6 +187,9 @@ public class ControllerServlet extends VelocityServlet {
 				&& !path.equalsIgnoreCase(ClientConstants.servletPage)) {
 			page = path;
 		}
+		// This will be used in Commands to retrieve store name, category name,
+		// etc (ex: store/Ebay, category/Accessories)
+		ctx.put("requestURI", page);
 		try {
 			// Handle logout
 			if (handleLogout(request, response, page, session)) {
@@ -226,6 +229,7 @@ public class ControllerServlet extends VelocityServlet {
 		long stopTime = System.currentTimeMillis();
 		ctx.put("elapsedTime", new Long(stopTime - startTime));
 		ctx.put("startTimeServlet", new Long(startTime));
+		ctx.put("domainName", ClientConstants.domainName);
 
 		setDefaultContextVariables(request, response, ctx);
 		return template;
@@ -299,7 +303,10 @@ public class ControllerServlet extends VelocityServlet {
 				.getParameter("dsif"))
 				|| Boolean.parseBoolean(request.getParameter("ajax"));
 
-		String value = actionMappings.getProperty(page.toLowerCase());
+		// To retrieve page when the format is like 'store/Ebay'
+		String pageRoot = (page.indexOf('/') >= 0) ? page.substring(0,
+				page.indexOf('/')) : page;
+		String value = actionMappings.getProperty(pageRoot.toLowerCase());
 
 		Object obj = (value != null && !value.contains(".vm")) ? Class
 				.forName(value) : value;
@@ -447,12 +454,10 @@ public class ControllerServlet extends VelocityServlet {
 	private boolean pageDoesNotRequireLogin(String page) {
 		return true;
 		/*
-		return page != null
-				&& (page.equalsIgnoreCase("copyright")
-						|| page.equalsIgnoreCase("login")
-						|| page.equalsIgnoreCase("logout") || page
-							.equalsIgnoreCase("signup"));
-		*/
+		 * return page != null && (page.equalsIgnoreCase("copyright") ||
+		 * page.equalsIgnoreCase("login") || page.equalsIgnoreCase("logout") ||
+		 * page .equalsIgnoreCase("signup"));
+		 */
 	}
 
 	@Override

@@ -25,7 +25,7 @@ public class ClientConstants {
 
 	public static final String loginFailureCount = "login_failure_count";
 
-	public static final String domainName = "clicktobuy.com";
+	public static final String domainName = "http://localhost:8888/";
 	public static final String RECAPTCHA_PUBLIC_KEY = "6LfPgNsSAAAAAASO2ef1Y4jeOy0kvWSSfIkyVcBo";
 	public static final String RECAPTCHA_PRIVATE_KEY = "6LfPgNsSAAAAAP_J8UgX4SKhU075ar1blw0VR5zx";
 
