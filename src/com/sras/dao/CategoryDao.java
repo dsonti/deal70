@@ -218,8 +218,8 @@ public class CategoryDao extends BaseDao {
 		category.setDescritpion(rst.getString(DESCRIPTION));
 		category.setImageName(rst.getString(IMG_NAME));
 		category.setViewCount(rst.getLong(VIEW_COUNT));
-		category.setCreateDate(rst.getDate(CREATE_DATE));
-		category.setUpdateDate(rst.getDate(UPDATE_DATE));
+		category.setCreateDate(rst.getTimestamp(CREATE_DATE));
+		category.setUpdateDate(rst.getTimestamp(UPDATE_DATE));
 		category.setCreatedBy(rst.getString(CREATED_BY));
 		category.setLoaded(true);
 		return category;

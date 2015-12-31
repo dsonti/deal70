@@ -46,6 +46,9 @@ public class DealDao extends BaseDao {
 			bindVars.add(SQLValue.Timestamp(deal.getExpiryDate()));
 			bindVars.add(SQLValue.Timestamp(deal.getUpdateDate()));
 			bindVars.add(SQLValue.String(deal.getCreatedBy()));
+			bindVars.add(SQLValue.String(deal.getPrice()));
+			bindVars.add(SQLValue.String(deal.getDiscount()));
+			bindVars.add(SQLValue.String(deal.getDiscountedPrice()));
 
 			logger.debug("QUERY - Loading store :" + sql);
 			return executeUpdate(sql, bindVars);
@@ -81,6 +84,9 @@ public class DealDao extends BaseDao {
 			bindVars.add(SQLValue.Timestamp(deal.getExpiryDate()));
 			bindVars.add(SQLValue.Timestamp(deal.getUpdateDate()));
 			bindVars.add(SQLValue.String(deal.getCreatedBy()));
+			bindVars.add(SQLValue.String(deal.getPrice()));
+			bindVars.add(SQLValue.String(deal.getDiscount()));
+			bindVars.add(SQLValue.String(deal.getDiscountedPrice()));
 			bindVars.add(SQLValue.Long(deal.getId()));
 
 			logger.debug("QUERY - Loading store :" + sql);
@@ -131,7 +137,7 @@ public class DealDao extends BaseDao {
 			logger.debug("QUERY - Loading Store :" + sql);
 			rst = executeQuery(sql, bindVars);
 			ArrayList<DataModel> deals = new ArrayList<DataModel>();
-			while (!rst.next()) {
+			while (rst.next()) {
 				deals.add(loadDealVO(null, rst));
 			}
 			return deals;
@@ -259,10 +265,14 @@ public class DealDao extends BaseDao {
 		deal.setViewCount(rst.getLong(VIEW_COUNT));
 		deal.setIsActive(rst.getBoolean(IS_ACTIVE));
 		deal.setDealImage(rst.getString(IMG_NAME));
-		deal.setCreateDate(rst.getDate(CREATE_DATE));
-		deal.setExpiryDate(rst.getDate(EXPIRY_DATE));
-		deal.setUpdateDate(rst.getDate(UPDATE_DATE));
+		deal.setCreateDate(rst.getTimestamp(CREATE_DATE));
+		deal.setExpiryDate(rst.getTimestamp(EXPIRY_DATE));
+		deal.setUpdateDate(rst.getTimestamp(UPDATE_DATE));
 		deal.setCreatedBy(rst.getString(CREATED_BY));
+		deal.setPrice(rst.getString(PRICE));
+		deal.setDiscount(rst.getString(DISCOUNT));
+		deal.setDiscountedPrice(rst.getString(DISCOUNTED_PRICE));
+
 		deal.setLoaded(true);
 		return deal;
 	}
@@ -271,9 +281,9 @@ public class DealDao extends BaseDao {
 	public static final String DELETE_DEAL = "DELETE FROM `DEAL_DATA` WHERE 1=1 ";
 	public static final String UPDATE_DEAL = "UPDATE `DEAL_DATA` SET `STORE_ID` = ? ,`CATEGORY_ID` = ?, "
 			+ "`LOCATION` = ? ,`TITLE` = ? ,`DESCRIPTION1` = ? ,`DESCRIPTION2` = ? ,`DEAL_CODE` = ? ,`STEPS_TO_CONSUME` = ?, `VIEW_COUNT` = ?, `IS_ACTIVE` = ?, "
-			+ "`IMG_NAME` = ?, `CREATE_DATE` = ?, `EXPIRY_DATE` = ?, `UPDATE_DATE` = ?, `CREATED_BY` = ? WHERE `ID` = ?";
+			+ "`IMG_NAME` = ?, `CREATE_DATE` = ?, `EXPIRY_DATE` = ?, `UPDATE_DATE` = ?, `CREATED_BY` = ?, `PRICE` = ?, `DISCOUNT` = ?, `DISCOUNTED_PRICE` = ? WHERE `ID` = ?";
 	public static final String CREATE_DEAL = "INSERT INTO `DEAL_DATA` (`STORE_ID`,`CATEGORY_ID`,`LOCATION`,`TITLE`,`DESCRIPTION1`,`DESCRIPTION2`,"
-			+ "`DEAL_CODE`,`STEPS_TO_CONSUME`,`VIEW_COUNT`,`IS_ACTIVE`,`IMG_NAME`,`CREATE_DATE`,`EXPIRY_DATE`,`UPDATE_DATE`,`CREATED_BY`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			+ "`DEAL_CODE`,`STEPS_TO_CONSUME`,`VIEW_COUNT`,`IS_ACTIVE`,`IMG_NAME`,`CREATE_DATE`,`EXPIRY_DATE`,`UPDATE_DATE`,`CREATED_BY`,`PRICE`,`DISCOUNT`,`DISCOUNTED_PRICE`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 	public static final String STORE_ID = "STORE_ID";
 	public static final String CATEGORY_ID = "CATEGORY_ID";
@@ -290,4 +300,7 @@ public class DealDao extends BaseDao {
 	public static final String EXPIRY_DATE = "EXPIRY_DATE";
 	public static final String UPDATE_DATE = "UPDATE_DATE";
 	public static final String CREATED_BY = "CREATED_BY";
+	public static final String PRICE = "PRICE";
+	public static final String DISCOUNT = "DISCOUNT";
+	public static final String DISCOUNTED_PRICE = "DISCOUNTED_PRICE";
 }

@@ -31,25 +31,32 @@ public final class ConnectionManagerImpl {
 	 */
 	public Connection getConnection() throws TMException {
 		logger.debug("Inside mySQLConnection method, trying to acquire MYSQL connection");
+		String driverClassName = null;
 		try {
 			if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
 				// Load the class that provides the new "jdbc:google:mysql://"
 				// prefix.
-				Class.forName("com.mysql.jdbc.GoogleDriver");
+				driverClassName = "com.mysql.jdbc.GoogleDriver";
 				url = "jdbc:google:mysql://deal70-1146:deal70/deal70?user=root";
 			} else {
 				// Local MySQL instance to use during development.
-				Class.forName("com.mysql.jdbc.Driver");
+				driverClassName = "com.mysql.jdbc.Driver";
 				url = "jdbc:mysql://127.0.0.1:3306/deal70?user=root";
 
 				// Alternatively, connect to a Google Cloud SQL instance using:
 				// jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
 			}
+			Class.forName(driverClassName);
 			return DriverManager.getConnection(url);
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(
+					"Cannot find the SQL driver in the classpath." + " driver="
+							+ driverClassName, e);
 		} catch (Exception sql) {
 			logger.error("Unable to get connection ..", sql);
 			throw new TMException("No Connection", sql.getMessage());
 		}
+
 	}
 
 	/**

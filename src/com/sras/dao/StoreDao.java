@@ -212,8 +212,8 @@ public class StoreDao extends BaseDao {
 		store.setIsOnline(rst.getBoolean(IS_ONLINE));
 		store.setViewCount(rst.getLong(VIEW_COUNT));
 		store.setGeoLocation(rst.getString(GEO_LOCATION));
-		store.setCreateDate(rst.getDate(CREATE_DATE));
-		store.setUpdateDate(rst.getDate(UPDATE_DATE));
+		store.setCreateDate(rst.getTimestamp(CREATE_DATE));
+		store.setUpdateDate(rst.getTimestamp(UPDATE_DATE));
 		store.setCreatedBy(rst.getString(CREATED_BY));
 		store.setLoaded(true);
 		return store;

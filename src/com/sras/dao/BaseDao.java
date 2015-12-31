@@ -45,7 +45,7 @@ public abstract class BaseDao {
 
 	public abstract boolean validateRules() throws TMException;
 
-	public Connection getConnection() throws TMException, SQLException {
+	public static Connection getConnection() throws TMException, SQLException {
 		return ConnectionManagerImpl.getConnectionManager().getConnection();
 	}
 
