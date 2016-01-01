@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Constructor;
 import java.net.SocketException;
+import java.util.Hashtable;
 import java.util.Properties;
 
 import javax.servlet.ServletConfig;
@@ -27,8 +28,11 @@ import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.servlet.VelocityServlet;
 
+import com.google.gson.Gson;
+import com.sras.client.action.CategoryCommand;
 import com.sras.client.action.Command;
 import com.sras.client.action.LoginCommand;
+import com.sras.client.action.StoreCommand;
 import com.sras.client.utils.ClientConstants;
 import com.sras.client.utils.Formatter;
 import com.sras.client.utils.SessionHelper;
@@ -414,7 +418,10 @@ public class ControllerServlet extends VelocityServlet {
 		String requestedURL = Utilities.getRequestedURL(request);
 		ctx.put("currentURL", requestedURL);
 		ctx.put("currentRequest", request);
-
+		ctx.put("categories", new Gson().toJson(
+				CategoryCommand.getCategories(), Hashtable.class));
+		ctx.put("stores",
+				new Gson().toJson(StoreCommand.getStores(), Hashtable.class));
 		getClientIpAddr(request);
 	}
 

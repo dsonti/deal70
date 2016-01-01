@@ -15,6 +15,7 @@ public class DealData extends WithId {
 	public long viewCount;
 	public Boolean isActive;
 	public String dealImage;
+	public String dealUrl;
 	public Date expiryDate;
 	public Date createDate;
 	public Date updateDate;
@@ -116,6 +117,14 @@ public class DealData extends WithId {
 
 	public void setDealImage(String dealImage) {
 		this.dealImage = dealImage;
+	}
+
+	public String getDealUrl() {
+		return dealUrl;
+	}
+
+	public void setDealUrl(String dealUrl) {
+		this.dealUrl = dealUrl;
 	}
 
 	public Date getExpiryDate() {

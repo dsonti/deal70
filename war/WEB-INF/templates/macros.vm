@@ -87,50 +87,9 @@
     <aside class="widget widget_popular_stores">
         <h4 class="widget-title">Popular Stores</h4>
         <div class="widget-content shadow-box">
-            <div class="ui two column grid">
-                <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/religion.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/nature.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/starlight.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/vientohotel.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!-- <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/athleteform.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="store-$!{domainName}thumb">
-                        <a href="single_store.html" class="ui image middle aligned">
-                            <img src="$!{domainName}thumb/stores/scribble.png" alt="">
-                        </a>
-                    </div>
-                </div> -->
+            <div id="popularStores" class="ui two column grid">
             </div>
+            <br><center><a href="$!{domainName}stores">Show All Stores</a></center>
         </div>
     </aside>
 #end

@@ -43,7 +43,7 @@ public class DealViewDao extends BaseDao {
 		try {
 
 			String sql = "SELECT ID,STORE_ID,CATEGORY_ID,LOCATION,TITLE,DESCRIPTION1,DESCRIPTION2,"
-					+ "DEAL_CODE,STEPS_TO_CONSUME,VIEW_COUNT,IS_ACTIVE,DEAL_IMG_NAME,CREATE_DATE,EXPIRY_DATE,"
+					+ "DEAL_CODE,STEPS_TO_CONSUME,VIEW_COUNT,IS_ACTIVE,DEAL_IMG_NAME,DEAL_URL,CREATE_DATE,EXPIRY_DATE,"
 					+ "UPDATE_DATE,CREATED_BY,PRICE,DISCOUNT,DISCOUNTED_PRICE,"
 					+ "STORE_NAME,STORE_IMG_NAME,STORE_URL,CATEGORY_NAME,PARENT_ID FROM DEAL_DATA_VW WHERE 1=1 ";
 
@@ -76,7 +76,9 @@ public class DealViewDao extends BaseDao {
 				sql += AND + "`NAME` like ? ";
 				bindVars.add(SQLValue.String(deal.getTitle()));
 			}
-
+			sql += AND + "`IS_ACTIVE` = ? ";
+			bindVars.add(SQLValue.Boolean(deal.isActive));
+			
 			sql += ORDER_BY + "`UPDATE_DATE` desc ";
 			logger.debug("QUERY - Loading Store :" + sql);
 			rs = executeQuery(sql, bindVars);
@@ -97,6 +99,7 @@ public class DealViewDao extends BaseDao {
 				dealView.setViewCount(rs.getLong("VIEW_COUNT"));
 				dealView.setIsActive(rs.getBoolean("IS_ACTIVE"));
 				dealView.setDealImage(rs.getString("DEAL_IMG_NAME"));
+				dealView.setDealUrl(rs.getString("DEAL_URL"));
 				dealView.setExpiryDate(rs.getTimestamp("EXPIRY_DATE"));
 				dealView.setCreateDate(rs.getTimestamp("CREATE_DATE"));
 				dealView.setUpdateDate(rs.getTimestamp("UPDATE_DATE"));

@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Category;
 import org.apache.velocity.context.Context;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.sras.client.utils.Utilities;
 import com.sras.dao.CategoryDao;
-import com.sras.dao.DealDao;
+import com.sras.dao.DealViewDao;
 import com.sras.datamodel.CategoryData;
 import com.sras.datamodel.DataModel;
-import com.sras.datamodel.DealData;
+import com.sras.datamodel.DealViewData;
 import com.sras.datamodel.exceptions.DataModelException;
 import com.sras.datamodel.exceptions.TMException;
 
@@ -24,7 +26,7 @@ public class CategoryCommand extends Command {
 	protected static Category log = Category.getInstance(MainCommand.class);
 
 	static Hashtable<Long, String> subCategoriesMap = new Hashtable<Long, String>();
-	static Hashtable<Long, CategoryData> categoriesMap = new Hashtable<Long, CategoryData>();
+	static Hashtable<String, CategoryData> categoriesMap = new Hashtable<String, CategoryData>();
 
 	static {
 		loadCategories();
@@ -32,6 +34,8 @@ public class CategoryCommand extends Command {
 
 	public static void loadCategories() {
 		try {
+			ArrayList<DataModel> subList = new ArrayList<DataModel>();
+
 			CategoryData catData = new CategoryData();
 			CategoryDao catDao = new CategoryDao(catData);
 			ArrayList<DataModel> categoreis = catDao.enumerate();
@@ -49,7 +53,7 @@ public class CategoryCommand extends Command {
 					}
 					subCategoriesMap.put(cData.getParentId(), subCatList);
 				}
-				categoriesMap.put(cData.getId(), cData);
+				categoriesMap.put(cData.getName(), cData);
 			}
 		} catch (DataModelException e) {
 			// TODO Auto-generated catch block
@@ -63,7 +67,7 @@ public class CategoryCommand extends Command {
 		}
 	}
 
-	public static Hashtable<Long, CategoryData> getCategories() {
+	public static Hashtable<String, CategoryData> getCategories() {
 		return categoriesMap;
 	}
 
@@ -73,34 +77,47 @@ public class CategoryCommand extends Command {
 	}
 
 	public String doAjaxGet() {
-		long categoryId = Utilities.getLongFromRequest(request, "ct");
 		try {
-			DealData deal = new DealData();
-			if (subCategoriesMap.containsKey(categoryId)) {
-				deal.setSubCategoryIds(subCategoriesMap.get(categoryId) + ", "
-						+ categoryId);
+			Long catId = Utilities.getLongFromRequest(request, "cid");
+			DealViewData deal = new DealViewData();
+			if (subCategoriesMap.containsKey(catId)) {
+				deal.setParentCategoryId(catId);
 			} else {
-				deal.setCategoryId(categoryId);
+				deal.setCategoryId(catId);
 			}
-			DealDao dao = new DealDao(deal);
-			ArrayList deals = dao.enumerate();
-			ctx.put("ajax_response_data", "Ajax call successful!");
+			DealViewDao dao = new DealViewDao(deal);
+			ArrayList<DataModel> deals = dao.enumerate();
+			String jsonStr = "No deals available!";
+			if (deals != null && deals.size() > 0) {
+				Gson gson = new GsonBuilder().create();
+				jsonStr = gson.toJson(deals, ArrayList.class);
+			}
+			ctx.put("ajax_response_data", jsonStr);
 		} catch (Exception e) {
 			ctx.put("ajax_response_data", "Failed while retrieving deals!!");
-
 		}
 		return "ajax_template.vm";
 	}
 
 	public String doGet() throws Exception {
-		String hostName = Utilities.getRemoteHostName(request);
-		ctx.put("hostName", hostName);
-		long categoryId = Utilities.getLongFromRequest(request, "ct");
-		CategoryData catData = categoriesMap.get(categoryId);
-		ctx.put("catData", catData);
-		CategoryData parentCatData = categoriesMap.get(catData.getParentId());
-		if (parentCatData != null) {
-			ctx.put("parentCatData", parentCatData);
+		// To handle URL format like .../category/Accessories
+		String requestURI = (String) ctx.get("requestURI");
+		int i = requestURI.indexOf('/');
+		String parentCategoryName = null, subCategoryName = null;
+		if (i > 0 && requestURI.indexOf("category") == 0) {
+			parentCategoryName = requestURI.substring(i + 1);
+			// To handle URL format like .../category/Accessories/Bags
+			int j = requestURI.indexOf('/');
+			subCategoryName = j > 0 ? parentCategoryName.substring(j + 1)
+					: parentCategoryName;
+
+			String name = (subCategoryName == null) ? parentCategoryName
+					: subCategoryName;
+			CategoryData catData = categoriesMap.get(name);
+			ctx.put("catData", catData);
+			if (subCategoryName != null) {
+				ctx.put("parentCategoryName", parentCategoryName);
+			}
 		}
 		// MailUtils.sendMail("itsras@gmail.com", "Test Mail", "Test Mail");
 		return TEMPLATE_NAME;

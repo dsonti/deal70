@@ -111,7 +111,7 @@ public class CategoryDao extends BaseDao {
 			logger.debug("QUERY - Loading Category :" + sql);
 			rst = executeQuery(sql, bindVars);
 			ArrayList<DataModel> categories = new ArrayList<DataModel>();
-			while (!rst.next()) {
+			while (rst.next()) {
 				categories.add(loadCategoryVO(null, rst));
 			}
 			return categories;
@@ -177,6 +177,10 @@ public class CategoryDao extends BaseDao {
 			logger.debug("QUERY - Loading Category :" + sql);
 			rst = executeQuery(sql, bindVars);
 
+			if (!rst.next()) {
+				return null;
+			}
+
 			return loadCategoryVO(category, rst);
 		} catch (SQLException sql) {
 			logger.error("SQL-Exception", sql);
@@ -200,10 +204,6 @@ public class CategoryDao extends BaseDao {
 	 */
 	public DataModel loadCategoryVO(CategoryData category, ResultSet rst)
 			throws TMException, SQLException {
-		if (!rst.next()) {
-			return null;
-		}
-
 		if (category == null) {
 			category = new CategoryData();
 		}

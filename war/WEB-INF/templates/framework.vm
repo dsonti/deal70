@@ -31,6 +31,10 @@
 	    <link rel="stylesheet" href="$!{domainName}assets/css/semantic.min.css">
 	    <link rel="stylesheet" href="$!{domainName}style.css">
 	
+		<script>
+			var stores = JSON.parse('$!stores');
+			var categories = JSON.parse('$!categories');
+		</script>
 	    <!-- Header JS -->
 	    <script src="$!{domainName}assets/js/jquery-1.11.1.min.js"></script>
 	

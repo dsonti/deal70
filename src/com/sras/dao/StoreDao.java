@@ -107,7 +107,7 @@ public class StoreDao extends BaseDao {
 			logger.debug("QUERY - Loading Store :" + sql);
 			rst = executeQuery(sql, bindVars);
 			ArrayList<DataModel> stores = new ArrayList<DataModel>();
-			while (!rst.next()) {
+			while (rst.next()) {
 				stores.add(loadStoreVO(null, rst));
 			}
 			return stores;
@@ -167,6 +167,10 @@ public class StoreDao extends BaseDao {
 			logger.debug("QUERY - Loading Store :" + sql);
 			rst = executeQuery(sql, bindVars);
 
+			if (!rst.next()) {
+				return null;
+			}
+
 			return loadStoreVO(store, rst);
 		} catch (SQLException sql) {
 			logger.error("SQL-Exception", sql);
@@ -190,10 +194,6 @@ public class StoreDao extends BaseDao {
 	 */
 	public DataModel loadStoreVO(StoreData store, ResultSet rst)
 			throws TMException, SQLException {
-		if (!rst.next()) {
-			return null;
-		}
-
 		if (store == null) {
 			store = new StoreData();
 		}

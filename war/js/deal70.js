@@ -1,6 +1,28 @@
 var getCode = '<div class="store-listing-item shadow-box"><div class="store-thumb-link"><div class="store-thumb"><a href="#DOMAIN_NAME#store/#STORENAME#"><img src="#COUPON_THUMB#" alt=""></a></div><div class="store-name"><a href="#DOMAIN_NAME#store/#STORENAME#">#STORENAME_DISPLAY#<i class="angle right icon"></i></a></div></div><div class="latest-coupon"><h3 class="coupon-title"><a href="#">#COUPON_TITLE#</a></h3><div class="coupon-des">#COUPON_DESCRIPTION1#<span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span><div class="coupon-des-full" style="display: none;">#COUPON_DESCRIPTION2#<a class="des-less" href="#">Less<i class="angle up icon"></i></a></div></div></div><div class="coupon-detail coupon-button-type"><a href="#" class="coupon-button coupon-code" data-aff-url="#"><span class="code-text">#COUPON_CODE#</span><span class="get-code">Get Code</span></a><div class="exp-text">Expires #COUPON_EXPIRY_DATE#<a title="Save This Coupon" href="#" class="coupon-save"><i class="empty star icon"></i></a></div></div><!-- Coupon Modal --><div id="#COUPON_CODE_ID#" class="ui modal coupon-modal coupon-code-modal"><div class="coupon-header clearfix"><div class="coupon-store-thumb"><img src="thumb/stores/vientohotel.png" alt=""></div><div class="coupon-title">#COUPON_TITLE#</div><span class="close"></span></div><div class="coupon-content"><p class="coupon-type-text">Copy this code and use at checkout</p><div class="modal-code"><span class="code-text">#COUPON_CODE#</span></div><div class="clearfix"><div class="user-ratting ui icon basic buttons"><div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div><div class="ui button icon-popup" data-offset="0" data-content="It did not work" data-variation="inverted"><i class="frown icon"></i></div><div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div></div><a href="#STORE_URL#" target="_blank" class="ui button btn btn_secondary go-store">Go To Store<i class="angle right icon"></i></a></div><div class="clearfix"><span class="user-ratting-text">Did it work?</span><span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span></div><div class="coupon-popup-detail"><p>#COUPON_POPUP_DETAIL#<p><p><strong>Expires</strong>: #COUPON_EXPIRY_DATE#</p><p><strong>Submitted</strong>: #COUPON_SUBMITTED#</p></div></div><div class="coupon-footer"><ul class="clearfix"><li><span><i class="wifi icon"></i> #TOTAL_COUNT# People Used, #TODAYS_COUNT# Today</span></li><li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li></ul><div class="share-modal-popup ui popup"><a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a><a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a><a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a><a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a></div></div></div></div>';
 var getDeal = '<div class="store-listing-item shadow-box"><div class="store-thumb-link"><div class="store-thumb"><a href="#DOMAIN_NAME#store/#STORENAME#"><img src="#COUPON_THUMB#" alt=""></a></div><div class="store-name"><a href="#DOMAIN_NAME#store/#STORENAME#">#STORENAME_DISPLAY#<i class="angle right icon"></i></a></div></div><div class="latest-coupon"><h3 class="coupon-title"><a href="#">#COUPON_TITLE#</a></h3><div class="coupon-des">#COUPON_DESCRIPTION1#<span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span><div class="coupon-des-full" style="display: none;">#COUPON_DESCRIPTION2#<a class="des-less" href="#">Less<i class="angle up icon"></i></a></div></div></div><div class="coupon-detail coupon-button-type"><a href="#" class="coupon-deal coupon-button" data-aff-url="#">Get Deal <i class="shop icon"></i></a><div class="exp-text">Expires #COUPON_EXPIRY_DATE#<a title="Save This Coupon" href="#" class="coupon-save"><i class="empty star icon"></i></a></div></div><!-- Coupon Modal --><div id="#COUPON_CODE_ID#" class="ui modal coupon-modal coupon-deal-modal"><div class="coupon-header clearfix"><div class="coupon-store-thumb"><img src="thumb/stores/vientohotel.png" alt=""></div><div class="coupon-title">#COUPON_TITLE#</div><span class="close"></span></div><div class="coupon-content"><p class="coupon-type-text">Deal Activated, no coupon code required!</p><div class="modal-code"><a href="#STORE_URL#" target="_blank" class="ui button btn btn_secondary deal-actived">Go To Store<i class="angle right icon"></i></a></div><div class="clearfix"><div class="user-ratting ui icon basic buttons"><div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div><div class="ui button icon-popup" data-offset="0" data-content="It did not work" data-variation="inverted"><i class="frown icon"></i></div><div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div></div></div><div class="clearfix"><span class="user-ratting-text">Did it work?</span><span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span></div><div class="coupon-popup-detail"><p>#COUPON_POPUP_DETAIL#<p><p><strong>Expires</strong>: #COUPON_EXPIRY_DATE#</p><p><strong>Submitted</strong>: #COUPON_SUBMITTED#</p></div></div><div class="coupon-footer"><ul class="clearfix"><li><span><i class="wifi icon"></i> #TOTAL_COUNT# People Used, #TODAYS_COUNT# Today</span></li><li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li></ul><div class="share-modal-popup ui popup"><a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a><a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a><a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a><a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a></div></div></div></div>';
+
+var storeData = '<div class="column"><div class="store-thumb"><a href="#DOMAIN_NAME#store/#STORENAME#" class="ui image middle aligned"><img src="#DOMAIN_NAME#thumb/stores/#STORE_IMAGE#" alt=""></a></div></div>';
 var counter = 10;
+
+function loadPopularStores() {
+	var i = 0;
+	for ( var key in stores) {
+		// To show only four stores in the widget...
+		if (i > 4) {
+			break;
+		}
+		var storeJson = stores[key];
+		var store = storeData;
+		var domainName = document.getElementById("domainName").value;
+		store = store.replace(/#DOMAIN_NAME#/g, domainName);
+		store = store.replace(/#STORENAME#/g, storeJson.name);
+		store = store.replace(/#STORE_IMAGE#/g, storeJson.imageName);
+		$("#popularStores").append(store);
+		i++;
+	}
+	var storesUrl = '<br><center><a href="' + domainName + 'stores">Show All Stores</a></center>';
+	$("#popularStores").append(storesUrl);
+}
 
 function timeSince(date) {
 
@@ -70,7 +92,7 @@ function getCouponCode(deal) {
 	code = code.replace(/#COUPON_DESCRIPTION2#/g, deal.description1);
 	code = code.replace(/#COUPON_CODE#/g, deal.code);
 	code = code.replace(/#COUPON_POPUP_DETAIL#/g, deal.stepsToConsume);
-	code = code.replace(/#STORE_URL#/g, deal.storeUrl);
+	code = code.replace(/#STORE_URL#/g, deal.dealUrl);
 	code = code.replace(/#COUPON_EXPIRY_DATE#/g, " in "
 			+ timeSince(new Date(deal.expiryDate)));
 	code = code.replace(/#COUPON_SUBMITTED#/g, deal.createDate);
@@ -93,7 +115,7 @@ function fetchDeals(curl) {
 
 function lastAddedLiveFunc(data) {
 	if (data.indexOf('[') != 0) {
-		$(".store-listings").append(data)
+		$(".store-listings").append(data);
 	}
 
 	var obj = JSON.parse(data);
@@ -233,6 +255,7 @@ function lastAddedLiveFunc(data) {
 $(document)
 		.ready(
 				function() {
+					// Load deals in Home, Store and Category pages...
 					var id = $('.btn_primary').attr("id");
 					if (id == "loadCoupons") {
 						fetchDeals("/?ajax=true&page=Home");
@@ -248,6 +271,9 @@ $(document)
 						fetchDeals("/?ajax=true&page=category&name=" + name
 								+ "&subcat=" + subcatname);
 					}
+
+					// Load popular stores widget...
+					loadPopularStores();
 
 					$('.btn_primary')
 							.click(

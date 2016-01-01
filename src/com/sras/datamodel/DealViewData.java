@@ -13,8 +13,9 @@ public class DealViewData implements DataModel {
 	public String code;
 	public String stepsToConsume;
 	public long viewCount;
-	public Boolean isActive;
+	public Boolean isActive = true;
 	public String dealImage;
+	public String dealUrl;
 	public Date expiryDate;
 	public Date createDate;
 	public Date updateDate;
@@ -124,6 +125,14 @@ public class DealViewData implements DataModel {
 
 	public void setDealImage(String dealImage) {
 		this.dealImage = dealImage;
+	}
+
+	public String getDealUrl() {
+		return dealUrl;
+	}
+
+	public void setDealUrl(String dealUrl) {
+		this.dealUrl = dealUrl;
 	}
 
 	public Date getExpiryDate() {
