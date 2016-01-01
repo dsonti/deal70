@@ -64,6 +64,10 @@ public class DealViewDao extends BaseDao {
 				sql += AND + "`CATEGORY_ID` = ? ";
 				bindVars.add(SQLValue.Long(deal.getCategoryId()));
 			}
+			if (deal.getParentCategoryId() > 0) {
+				sql += AND + "`PARENT_ID` = ? ";
+				bindVars.add(SQLValue.Long(deal.getParentCategoryId()));
+			}
 			if (deal.getCategoryName() != null) {
 				sql += AND + "`CATEGORY_NAME` = ? ";
 				bindVars.add(SQLValue.String(deal.getCategoryName()));

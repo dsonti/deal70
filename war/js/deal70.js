@@ -2,6 +2,7 @@ var getCode = '<div class="store-listing-item shadow-box"><div class="store-thum
 var getDeal = '<div class="store-listing-item shadow-box"><div class="store-thumb-link"><div class="store-thumb"><a href="#DOMAIN_NAME#store/#STORENAME#"><img src="#COUPON_THUMB#" alt=""></a></div><div class="store-name"><a href="#DOMAIN_NAME#store/#STORENAME#">#STORENAME_DISPLAY#<i class="angle right icon"></i></a></div></div><div class="latest-coupon"><h3 class="coupon-title"><a href="#">#COUPON_TITLE#</a></h3><div class="coupon-des">#COUPON_DESCRIPTION1#<span class="des-more">... <a href="#">More<i class="angle down icon"></i></a></span><div class="coupon-des-full" style="display: none;">#COUPON_DESCRIPTION2#<a class="des-less" href="#">Less<i class="angle up icon"></i></a></div></div></div><div class="coupon-detail coupon-button-type"><a href="#" class="coupon-deal coupon-button" data-aff-url="#">Get Deal <i class="shop icon"></i></a><div class="exp-text">Expires #COUPON_EXPIRY_DATE#<a title="Save This Coupon" href="#" class="coupon-save"><i class="empty star icon"></i></a></div></div><!-- Coupon Modal --><div id="#COUPON_CODE_ID#" class="ui modal coupon-modal coupon-deal-modal"><div class="coupon-header clearfix"><div class="coupon-store-thumb"><img src="thumb/stores/vientohotel.png" alt=""></div><div class="coupon-title">#COUPON_TITLE#</div><span class="close"></span></div><div class="coupon-content"><p class="coupon-type-text">Deal Activated, no coupon code required!</p><div class="modal-code"><a href="#STORE_URL#" target="_blank" class="ui button btn btn_secondary deal-actived">Go To Store<i class="angle right icon"></i></a></div><div class="clearfix"><div class="user-ratting ui icon basic buttons"><div class="ui button icon-popup" data-offset="0" data-content="This worked" data-variation="inverted"><i class="smile icon"></i></div><div class="ui button icon-popup" data-offset="0" data-content="It did not work" data-variation="inverted"><i class="frown icon"></i></div><div class="save-coupon ui button icon-popup" data-offset="0" data-content="Save this coupon" data-variation="inverted"><i class="empty star icon"></i></div></div></div><div class="clearfix"><span class="user-ratting-text">Did it work?</span><span class="show-detail"><a href="#">Coupon Detail<i class="angle down icon"></i></a></span></div><div class="coupon-popup-detail"><p>#COUPON_POPUP_DETAIL#<p><p><strong>Expires</strong>: #COUPON_EXPIRY_DATE#</p><p><strong>Submitted</strong>: #COUPON_SUBMITTED#</p></div></div><div class="coupon-footer"><ul class="clearfix"><li><span><i class="wifi icon"></i> #TOTAL_COUNT# People Used, #TODAYS_COUNT# Today</span></li><li><a class="modal-share" href="#"><i class="share alternate icon"></i> Share</a></li></ul><div class="share-modal-popup ui popup"><a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a><a class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a><a class="tiny ui google plus button"><i class="google plus icon"></i>Google Plus</a><a class="tiny ui instagram button"><i class="instagram icon"></i>Instagram</a></div></div></div></div>';
 
 var storeData = '<div class="column"><div class="store-thumb"><a href="#DOMAIN_NAME#store/#STORENAME#" class="ui image middle aligned"><img src="#DOMAIN_NAME#thumb/stores/#STORE_IMAGE#" alt=""></a></div></div>';
+var categoryData = '<li><a href="#DOMAIN_NAME#category/#CATEGORYNAME#">#CATEGORYNAME#</a></li>';
 var counter = 10;
 
 function loadPopularStores() {
@@ -20,8 +21,25 @@ function loadPopularStores() {
 		$("#popularStores").append(store);
 		i++;
 	}
-	var storesUrl = '<br><center><a href="' + domainName + 'stores">Show All Stores</a></center>';
-	$("#popularStores").append(storesUrl);
+}
+
+function loadPopularCategories() {
+	var i = 0;
+	for ( var key in categories) {
+		// To show only four stores in the widget...
+		if (i > 8) {
+			break;
+		}
+		var catJson = categories[key];
+		if (catJson.parentId == 0) {
+			var cat = categoryData;
+			var domainName = document.getElementById("domainName").value;
+			cat = cat.replace(/#DOMAIN_NAME#/g, domainName);
+			cat = cat.replace(/#CATEGORYNAME#/g, key);
+			$("#popularCategories").append(cat);
+			i++;
+		}
+	}
 }
 
 function timeSince(date) {
@@ -252,60 +270,56 @@ function lastAddedLiveFunc(data) {
 	});
 };
 
-$(document)
-		.ready(
-				function() {
-					// Load deals in Home, Store and Category pages...
-					var id = $('.btn_primary').attr("id");
-					if (id == "loadCoupons") {
-						fetchDeals("/?ajax=true&page=Home");
-					}
-					if (id == "loadStoreCoupons") {
-						var name = document.getElementById("stname").value;
-						fetchDeals("/?ajax=true&page=store&name=" + name);
-					}
-					if (id == "loadCatCoupons") {
-						var name = document.getElementById("catname").value;
-						var subcatname = document.getElementById("subcatname").value;
+$(document).ready(
+		function() {
+			// Load deals in Home, Store and Category pages...
+			var id = $('.btn_primary').attr("id");
+			if (id == "loadCoupons") {
+				fetchDeals("/?ajax=true&page=Home");
+			}
+			if (id == "loadStoreCoupons") {
+				var name = document.getElementById("stname").value;
+				fetchDeals("/?ajax=true&page=store&name=" + name);
+			}
+			if (id == "loadCatCoupons") {
+				var cid = document.getElementById("cid").value;
+				fetchDeals("/?ajax=true&page=category&cid=" + cid);
+			}
+			if (id == "loadLocCoupons") {
+				var lName = document.getElementById("locationName").value;
+				fetchDeals("/?ajax=true&page=location&name=" + lName);
+			}
 
-						fetchDeals("/?ajax=true&page=category&name=" + name
-								+ "&subcat=" + subcatname);
-					}
+			// Load popular stores widget...
+			loadPopularStores();
 
-					// Load popular stores widget...
-					loadPopularStores();
+			// Load popular categories widget...
+			loadPopularCategories();
 
-					$('.btn_primary')
-							.click(
-									function(event) {
-										if ($(this).attr("id") == "loadCoupons") {
-											fetchDeals("/?ajax=true&page=Home");
-										}
-										if ($(this).attr("id") == "loadStoreCoupons") {
-											var name = document
-													.getElementById("stname").value;
-											fetchDeals("/?ajax=true&page=store&name="
-													+ name);
-										}
-										if ($(this).attr("id") == "loadCatCoupons") {
-											var name = document
-													.getElementById("catname").value;
-											var subcatname = document
-													.getElementById("subcatname").value;
+			$('.btn_primary').click(function(event) {
+				if ($(this).attr("id") == "loadCoupons") {
+					fetchDeals("/?ajax=true&page=Home");
+				}
+				if ($(this).attr("id") == "loadStoreCoupons") {
+					var name = document.getElementById("stname").value;
+					fetchDeals("/?ajax=true&page=store&name=" + name);
+				}
+				if ($(this).attr("id") == "loadCatCoupons") {
+					var cid = document.getElementById("cid").value;
+					fetchDeals("/?ajax=true&page=category&cid=" + cid);
+				}
+				if ($(this).attr("id") == "loadLocCoupons") {
+					var lName = document.getElementById("locationName").value;
+					fetchDeals("/?ajax=true&page=location&name=" + lName);
+				}
+			});
 
-											fetchDeals("/?ajax=true&page=category&name="
-													+ name
-													+ "&subcat="
-													+ subcatname);
-										}
-									});
-
-					/*
-					 * $(window).scroll(function(){ var wintop =
-					 * $(window).scrollTop(), docheight = $(document).height(),
-					 * winheight = $(window).height(); var scrolltrigger = 0.75;
-					 * 
-					 * if ((wintop/(docheight-winheight)) > scrolltrigger) {
-					 * //console.log('scroll bottom'); fetchDeals(); } });
-					 */
-				});
+			/*
+			 * $(window).scroll(function(){ var wintop = $(window).scrollTop(),
+			 * docheight = $(document).height(), winheight = $(window).height();
+			 * var scrolltrigger = 0.75;
+			 * 
+			 * if ((wintop/(docheight-winheight)) > scrolltrigger) {
+			 * //console.log('scroll bottom'); fetchDeals(); } });
+			 */
+		});

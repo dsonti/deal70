@@ -22,7 +22,7 @@ import com.sras.datamodel.exceptions.DataModelException;
 import com.sras.datamodel.exceptions.TMException;
 
 public class CategoryCommand extends Command {
-	private static String TEMPLATE_NAME = "categories.vm";
+	private static String TEMPLATE_NAME = "category.vm";
 	protected static Category log = Category.getInstance(MainCommand.class);
 
 	static Hashtable<Long, String> subCategoriesMap = new Hashtable<Long, String>();
@@ -107,9 +107,9 @@ public class CategoryCommand extends Command {
 		if (i > 0 && requestURI.indexOf("category") == 0) {
 			parentCategoryName = requestURI.substring(i + 1);
 			// To handle URL format like .../category/Accessories/Bags
-			int j = requestURI.indexOf('/');
+			int j = parentCategoryName.indexOf('/');
 			subCategoryName = j > 0 ? parentCategoryName.substring(j + 1)
-					: parentCategoryName;
+					: null;
 
 			String name = (subCategoryName == null) ? parentCategoryName
 					: subCategoryName;

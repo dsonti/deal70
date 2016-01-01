@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 30, 2015 at 06:31 PM
+-- Generation Time: Jan 01, 2016 at 04:13 AM
 -- Server version: 10.1.9-MariaDB
 -- PHP Version: 5.5.30
 
@@ -94,29 +94,66 @@ CREATE TABLE `DEAL_DATA` (
   `VIEW_COUNT` int(10) NOT NULL DEFAULT '0',
   `IS_ACTIVE` tinyint(1) NOT NULL,
   `IMG_NAME` varchar(255) DEFAULT NULL,
+  `DEAL_URL` varchar(512) NOT NULL,
   `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `EXPIRY_DATE` timestamp(6) NULL DEFAULT NULL,
   `UPDATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `CREATED_BY` varchar(255) NOT NULL
+  `CREATED_BY` varchar(255) NOT NULL,
+  `PRICE` varchar(255) DEFAULT NULL,
+  `DISCOUNT` varchar(255) DEFAULT NULL,
+  `DISCOUNTED_PRICE` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `DEAL_DATA`
 --
 
-INSERT INTO `DEAL_DATA` (`ID`, `STORE_ID`, `CATEGORY_ID`, `LOCATION`, `TITLE`, `DESCRIPTION1`, `DESCRIPTION2`, `DEAL_CODE`, `DEAL_TYPE`, `STEPS_TO_CONSUME`, `VIEW_COUNT`, `IS_ACTIVE`, `IMG_NAME`, `CREATE_DATE`, `EXPIRY_DATE`, `UPDATE_DATE`, `CREATED_BY`) VALUES
-(2, 1, 11, NULL, 'Up To 40% - 70% Off January Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:23:05', '2015-12-30 18:30:00.000000', '2015-12-30 17:23:05', 'itsras@gmail.com'),
-(3, 2, 11, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:23:53', '2015-12-30 18:30:00.000000', '2015-12-30 17:23:53', 'itsras@gmail.com'),
-(4, 3, 11, NULL, 'Up To 35% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'HUIKDFGS', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:24:31', '2015-12-30 18:30:00.000000', '2015-12-30 17:24:31', 'itsras@gmail.com'),
-(5, 4, 11, NULL, 'Up To 42% Off April Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'HUIKDFGS', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:24:57', '2015-12-30 18:30:00.000000', '2015-12-30 17:24:57', 'itsras@gmail.com'),
-(6, 1, 20, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:26:50', '2015-12-30 18:30:00.000000', '2015-12-30 17:26:50', 'itsras@gmail.com'),
-(7, 2, 20, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:26:50', '2015-12-30 18:30:00.000000', '2015-12-30 17:26:50', 'itsras@gmail.com'),
-(8, 3, 20, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:26:50', '2015-12-30 18:30:00.000000', '2015-12-30 17:26:50', 'itsras@gmail.com'),
-(9, 4, 20, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:26:50', '2015-12-30 18:30:00.000000', '2015-12-30 17:26:50', 'itsras@gmail.com'),
-(10, 1, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:29:21', '2015-12-30 18:30:00.000000', '2015-12-30 17:29:21', 'itsras@gmail.com'),
-(11, 2, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:29:21', '2015-12-30 18:30:00.000000', '2015-12-30 17:29:21', 'itsras@gmail.com'),
-(12, 3, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:29:21', '2015-12-30 18:30:00.000000', '2015-12-30 17:29:21', 'itsras@gmail.com'),
-(13, 4, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, '2015-12-30 17:29:21', '2015-12-30 18:30:00.000000', '2015-12-30 17:29:21', 'itsras@gmail.com');
+INSERT INTO `DEAL_DATA` (`ID`, `STORE_ID`, `CATEGORY_ID`, `LOCATION`, `TITLE`, `DESCRIPTION1`, `DESCRIPTION2`, `DEAL_CODE`, `DEAL_TYPE`, `STEPS_TO_CONSUME`, `VIEW_COUNT`, `IS_ACTIVE`, `IMG_NAME`, `DEAL_URL`, `CREATE_DATE`, `EXPIRY_DATE`, `UPDATE_DATE`, `CREATED_BY`, `PRICE`, `DISCOUNT`, `DISCOUNTED_PRICE`) VALUES
+(2, 1, 11, 'Hyderabad', 'Up To 40% - 70% Off January Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.filpkart.com', '2016-01-01 03:11:29', '2015-12-30 18:30:00.000000', '2016-01-01 03:11:29', 'itsras@gmail.com', NULL, NULL, NULL),
+(3, 2, 11, 'Mumbai', 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.amazon.in', '2016-01-01 03:12:04', '2015-12-30 18:30:00.000000', '2016-01-01 03:12:04', 'itsras@gmail.com', NULL, NULL, NULL),
+(4, 3, 11, 'Hyderabad', 'Up To 35% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'HUIKDFGS', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.paytm.com', '2016-01-01 03:11:36', '2015-12-30 18:30:00.000000', '2016-01-01 03:11:36', 'itsras@gmail.com', NULL, NULL, NULL),
+(5, 4, 11, 'Mumbai', 'Up To 42% Off April Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'HUIKDFGS', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.ebay.in', '2016-01-01 03:12:10', '2015-12-30 18:30:00.000000', '2016-01-01 03:12:10', 'itsras@gmail.com', NULL, NULL, NULL),
+(6, 1, 20, 'Hyderabad', 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.filpkart.com', '2016-01-01 03:11:42', '2015-12-30 18:30:00.000000', '2016-01-01 03:11:42', 'itsras@gmail.com', NULL, NULL, NULL),
+(7, 2, 20, 'Mumbai', 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.amazon.in', '2016-01-01 03:12:16', '2015-12-30 18:30:00.000000', '2016-01-01 03:12:16', 'itsras@gmail.com', NULL, NULL, NULL),
+(8, 3, 20, 'Hyderabad', 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.paytm.com', '2016-01-01 03:11:50', '2015-12-30 18:30:00.000000', '2016-01-01 03:11:50', 'itsras@gmail.com', NULL, NULL, NULL),
+(9, 4, 20, 'Mumbai', 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', 'ABCDEFG', 'CODE', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.ebay.in', '2016-01-01 03:12:23', '2015-12-30 18:30:00.000000', '2016-01-01 03:12:23', 'itsras@gmail.com', NULL, NULL, NULL),
+(10, 1, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.filpkart.com', '2016-01-01 00:04:38', '2015-12-30 18:30:00.000000', '2016-01-01 00:04:38', 'itsras@gmail.com', NULL, NULL, NULL),
+(11, 2, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.amazon.in', '2016-01-01 00:05:32', '2015-12-30 18:30:00.000000', '2016-01-01 00:05:32', 'itsras@gmail.com', NULL, NULL, NULL),
+(12, 3, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.paytm.com', '2016-01-01 00:05:53', '2015-12-30 18:30:00.000000', '2016-01-01 00:05:53', 'itsras@gmail.com', NULL, NULL, NULL),
+(13, 4, 25, NULL, 'Up To 50% Off December Savings Event', 'Some exclusions apply. No code required. Limited time offer', 'Some exclusions apply. No code required. Limited time offer', NULL, 'DEAL', 'Some exclusions apply. No code required. Limited time offer', 0, 1, NULL, 'http://www.ebay.in', '2016-01-01 00:06:10', '2015-12-30 18:30:00.000000', '2016-01-01 00:06:10', 'itsras@gmail.com', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `deal_data_vw`
+--
+CREATE TABLE `deal_data_vw` (
+`ID` int(10)
+,`STORE_ID` int(10)
+,`CATEGORY_ID` int(10)
+,`LOCATION` varchar(255)
+,`TITLE` varchar(255)
+,`DESCRIPTION1` varchar(255)
+,`DESCRIPTION2` varchar(1024)
+,`DEAL_CODE` varchar(255)
+,`STEPS_TO_CONSUME` varchar(2048)
+,`VIEW_COUNT` int(10)
+,`IS_ACTIVE` tinyint(1)
+,`DEAL_IMG_NAME` varchar(255)
+,`DEAL_URL` varchar(512)
+,`CREATE_DATE` timestamp
+,`EXPIRY_DATE` timestamp(6)
+,`UPDATE_DATE` timestamp
+,`CREATED_BY` varchar(255)
+,`PRICE` varchar(255)
+,`DISCOUNT` varchar(255)
+,`DISCOUNTED_PRICE` varchar(255)
+,`STORE_NAME` varchar(255)
+,`STORE_IMG_NAME` varchar(255)
+,`STORE_URL` varchar(255)
+,`CATEGORY_NAME` varchar(255)
+,`PARENT_ID` int(10)
+);
 
 -- --------------------------------------------------------
 
@@ -145,10 +182,19 @@ CREATE TABLE `STORE_DATA` (
 --
 
 INSERT INTO `STORE_DATA` (`ID`, `NAME`, `IMG_NAME`, `DESCRIPTION`, `STORE_URL`, `IS_POPULAR`, `LOCATION`, `IS_ONLINE`, `VIEW_COUNT`, `GEO_LOCATION`, `CREATE_DATE`, `UPDATE_DATE`, `CREATED_BY`) VALUES
-(1, 'Facebook', 'flipkart.jpg', NULL, 'http://www.facebook.com', 1, NULL, 1, 0, NULL, '2015-12-30 17:11:21', '2015-12-30 17:11:21', 'itsras@gmail.com'),
+(1, 'Flipkart', 'flipkart.jpg', NULL, 'http://www.flipkart.com', 1, NULL, 1, 0, NULL, '2016-01-01 00:03:04', '2016-01-01 00:03:04', 'itsras@gmail.com'),
 (2, 'Amazon', 'amazon.png', NULL, 'http://www.amazon.in', 1, NULL, 1, 0, NULL, '2015-12-30 17:12:13', '2015-12-30 17:12:13', 'itsras@gmail.com'),
 (3, 'Paytm', 'paytm.jpg', NULL, 'http://www.paytm.com', 1, NULL, 1, 0, NULL, '2015-12-30 17:12:44', '2015-12-30 17:12:44', 'itsras@gmail.com'),
 (4, 'Ebay', 'ebay.png', NULL, 'http://www.ebay.in', 1, NULL, 1, 0, NULL, '2015-12-30 17:13:21', '2015-12-30 17:13:21', 'itsras@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `deal_data_vw`
+--
+DROP TABLE IF EXISTS `deal_data_vw`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `deal_data_vw`  AS  select `DD`.`ID` AS `ID`,`DD`.`STORE_ID` AS `STORE_ID`,`DD`.`CATEGORY_ID` AS `CATEGORY_ID`,`DD`.`LOCATION` AS `LOCATION`,`DD`.`TITLE` AS `TITLE`,`DD`.`DESCRIPTION1` AS `DESCRIPTION1`,`DD`.`DESCRIPTION2` AS `DESCRIPTION2`,`DD`.`DEAL_CODE` AS `DEAL_CODE`,`DD`.`STEPS_TO_CONSUME` AS `STEPS_TO_CONSUME`,`DD`.`VIEW_COUNT` AS `VIEW_COUNT`,`DD`.`IS_ACTIVE` AS `IS_ACTIVE`,`DD`.`IMG_NAME` AS `DEAL_IMG_NAME`,`DD`.`DEAL_URL` AS `DEAL_URL`,`DD`.`CREATE_DATE` AS `CREATE_DATE`,`DD`.`EXPIRY_DATE` AS `EXPIRY_DATE`,`DD`.`UPDATE_DATE` AS `UPDATE_DATE`,`DD`.`CREATED_BY` AS `CREATED_BY`,`DD`.`PRICE` AS `PRICE`,`DD`.`DISCOUNT` AS `DISCOUNT`,`DD`.`DISCOUNTED_PRICE` AS `DISCOUNTED_PRICE`,`SD`.`NAME` AS `STORE_NAME`,`SD`.`IMG_NAME` AS `STORE_IMG_NAME`,`SD`.`STORE_URL` AS `STORE_URL`,`CD`.`NAME` AS `CATEGORY_NAME`,`CD`.`PARENT_ID` AS `PARENT_ID` from ((`deal_data` `DD` join `store_data` `SD`) join `category_data` `CD`) where ((1 = 1) and (`DD`.`STORE_ID` = `SD`.`ID`) and (`DD`.`CATEGORY_ID` = `CD`.`ID`)) ;
 
 --
 -- Indexes for dumped tables

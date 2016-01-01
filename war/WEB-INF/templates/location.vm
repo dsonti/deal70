@@ -1,26 +1,26 @@
-<input type="hidden" id="stname" name="stname" value="$!storeData.name">
+<input type="hidden" id="locationName" name="locationName" value="$!locationName">
 
 <div id="content" class="site-content">
-    <section class="custom-page-header single-store-header">
+    <section class="custom-page-header">
         <div class="container">
             <div class="ui small breadcrumb">
                 <a class="section">Home</a>
                 <i class="right angle right icon divider"></i>
-                <a class="section">Stores</a>
+                <a class="section">Location</a>
                 <i class="right angle right icon divider"></i>
-                <div class="active section">$!storeData.name</div>
+                <div class="active section">$!locationName</div>
             </div>
             <div class="inner shadow-box">
                 <div class="inner-content clearfix">
                     <div class="header-thumb">
-                        <div class="header-store-thumb">
-                            <a href="#"><img src="$!{domainName}thumb/stores/$!storeData.imageName" alt="$!storeName"></a>
+                        <div class="ui center aligned icon">
+                            <i class="circular car icon"></i> 
+                            <!-- <img src="$!{domainName}assets/images/clothing_icon.png" alt=""> -->
                         </div>
-                        <a class="add-favorite" href="#"><i class="empty heart icon"></i><span>Favorite This Store</span></a>
                     </div>
                     <div class="header-content">
-                        <h1><strong>$!storeData.name </strong>Coupon Code and Deals</h1>
-                        <p> $!storeData.descritpion</p>
+                        <h1><strong>$!locationName </strong>Coupon and Deals</h1>
+                        <p>We'll let you in on the top-secret spots to score the biggest deals on all your apparel needs. Simply use <br>the holiday coupon codes on this page and save on the fabulous fashion that shows you’ve got style.</p>
                         <div class="entry-share">
                             <div class="social-likes social-likes_single" data-single-title="Share">
                                 <div class="facebook" title="Share link on Facebook">Facebook</div>
@@ -40,34 +40,34 @@
             </div>
         </div>
     </section>
-    
-    <div id="content-wrap" class="container left-sidebar">
+
+    <div id="content-wrap" class="container right-sidebar">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
-                <section class="coupon-filter">
-                    <div class="ui pointing fluid four item menu">
-                        <a class="active item filter-nav">All <span class="offer-count">100</span></a>
-                        <a class="item filter-nav">Codes <span class="offer-count code-count">20</span></a>
-                        <a class="item filter-nav">Sales <span class="offer-count sale-count">40</span></a>
-                        <a class="item filter-nav">Prinable <span class="offer-count print-count">40</span></a>
-                    </div>
+
+                <section id="store-listings-wrapper" class="wpb_content_element">
+                    <h2 class="section-heading">Current Top $!locationName Location Coupons</h2>
+                    <div class="store-listings">
+                    </div>						
                 </section>
 
-                <section id="coupon-listings-wrapper" class="wpb_content_element">
-                    <div class="store-listings">
-                    </div><!-- END .store-listings -->						
-                </section>
                 <div class="load-more wpb_content_element">
-                	<a href="#" id="loadStoreCoupons" class="ui button btn btn_primary btn_large">Load More $!storeData.name Deals <i class="arrow circle outline down icon"></i></a>
-            	</div>
+                    <a href="#" id="loadLocCoupons" class="ui button btn btn_primary btn_large">Load More $!locationName Location Coupons <i class="arrow circle outline down icon"></i></a>
+                </div>
+
             </main><!-- #main -->
         </div><!-- #primary -->
 
         <div id="secondary" class="widget-area sidebar">
 			#popularStores()
 			#popularCategories()
-			#submitStoreDeal()				
-			#advertisement()
+			#newsletter()
+            #advertisement()
         </div><!-- #secondary -->
+        #mostViewedCategories()
+        <div class="after-content-ads ads-area">
+            <div class="ui horizontal divider">Advertisement</div>
+            <a href="#"><img src="$!{domainName}assets/images/1030.jpg" alt=""></a>
+        </div>
     </div> <!-- /#content-wrap -->
 </div> <!-- END .site-content -->

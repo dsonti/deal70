@@ -1,3 +1,5 @@
+<input type="hidden" id="cid" name="cid" value="$!catData.id">
+
 <div id="content" class="site-content">
     <section class="custom-page-header">
         <div class="container">
@@ -5,19 +7,26 @@
                 <a class="section">Home</a>
                 <i class="right angle right icon divider"></i>
                 <a class="section">Category</a>
+                #if($parentCategoryName)
                 <i class="right angle right icon divider"></i>
-                <div class="active section">Apparel Accessories</div>
+                <a class="section" href="$!{domainName}category/$!{parentCategoryName}">$!parentCategoryName</a>
+                <i class="right angle right icon divider"></i>
+                <div class="active section">$!catData.name</div>
+                #else
+                <i class="right angle right icon divider"></i>
+                <div class="active section">$!catData.name</div>
+                #end
             </div>
             <div class="inner shadow-box">
                 <div class="inner-content clearfix">
                     <div class="header-thumb">
                         <div class="ui center aligned icon">
-                            <!-- <i class="circular car icon"></i> -->
-                            <img src="assets/images/clothing_icon.png" alt="">
+                            <i class="circular car icon"></i> 
+                            <!-- <img src="$!{domainName}assets/images/clothing_icon.png" alt=""> -->
                         </div>
                     </div>
                     <div class="header-content">
-                        <h1><strong>Apparel Accessories </strong>Coupon and Deals</h1>
+                        <h1><strong>$!catData.name </strong>Coupon and Deals</h1>
                         <p>We'll let you in on the top-secret spots to score the biggest deals on all your apparel needs. Simply use <br>the holiday coupon codes on this page and save on the fabulous fashion that shows you’ve got style.</p>
                         <div class="entry-share">
                             <div class="social-likes social-likes_single" data-single-title="Share">
@@ -44,13 +53,13 @@
             <main id="main" class="site-main">
 
                 <section id="store-listings-wrapper" class="wpb_content_element">
-                    <h2 class="section-heading">Current Top Apparel Accessories Coupons</h2>
+                    <h2 class="section-heading">Current Top $!catData.name Coupons</h2>
                     <div class="store-listings">
                     </div>						
                 </section>
 
                 <div class="load-more wpb_content_element">
-                    <a href="#" class="ui button btn btn_primary btn_large">Load More Coupons <i class="arrow circle outline down icon"></i></a>
+                    <a href="#" id="loadCatCoupons" class="ui button btn btn_primary btn_large">Load More $!catData.name Coupons <i class="arrow circle outline down icon"></i></a>
                 </div>
 
             </main><!-- #main -->
@@ -65,7 +74,7 @@
         #mostViewedCategories()
         <div class="after-content-ads ads-area">
             <div class="ui horizontal divider">Advertisement</div>
-            <a href="#"><img src="assets/images/1030.jpg" alt=""></a>
+            <a href="#"><img src="$!{domainName}assets/images/1030.jpg" alt=""></a>
         </div>
     </div> <!-- /#content-wrap -->
 </div> <!-- END .site-content -->

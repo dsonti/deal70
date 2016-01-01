@@ -65,10 +65,15 @@
                         </li>
                         <!-- <li class=""><a href="#"><i class="student icon"></i> Back To School</a></li> -->
                         <li class="">
-                            <a href="page.html">Pages</a>
+                            <a href="#">Locations</a>
                             <ul>
-                                <li><a href="page.html">Single</a></li>
-                                <li class=""><a href="blog.html">Blog</a></li>
+                                <li><a href="$!{domainName}location/Bangalore">Bangalore</a></li>
+                                <li><a href="$!{domainName}location/Chennai">Chennai</a></li>
+                                <li><a href="$!{domainName}location/Delhi">Delhi</a></li>
+                                <li><a href="$!{domainName}location/Mumbai">Mumbai</a></li>
+                                <li><a href="$!{domainName}location/Pune">Pune</a></li>
+                                <li><a href="$!{domainName}location/Hyderabad">Hyderabad</a></li>
+
                             </ul>
                         </li>
                         <li class="menu-item-has-children"><a href="page_submit.html"><i class="edit icon"></i> Submit Coupon</a>
