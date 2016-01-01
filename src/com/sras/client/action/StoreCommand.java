@@ -1,5 +1,6 @@
 package com.sras.client.action;
 
+import java.net.URLDecoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -81,6 +82,7 @@ public class StoreCommand extends Command {
 
 	public String doGet() throws Exception {
 		String requestURI = (String) ctx.get("requestURI");
+		requestURI = URLDecoder.decode(requestURI, "UTF-8");
 		int i = requestURI.indexOf('/');
 		String storeName = null;
 		if (i > 0 && requestURI.indexOf("store") == 0) {

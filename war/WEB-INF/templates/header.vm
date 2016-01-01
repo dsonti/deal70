@@ -42,20 +42,8 @@
                     <a href="#content" class="screen-reader-text skip-link">Skip to content</a>
                     <div id="nav-toggle"><i class="content icon"></i></div>
                     <ul class="st-menu wpc-menu">
-                        <li class="menu-item-has-children"><a href="${servletPageWithAction}stores">Stores</a>
-                            <div class="nav-toggle-subarrow"><i class="plus icon"></i></div>
-                            <ul class="sub-menu">
-                                <li><a href="/store?id=">Store Single</a></li>
-                                <li><a href="/store?id=">Stores Index A-Z</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item-has-children"><a href="#">Categories</a>
-                            <div class="nav-toggle-subarrow"><i class="plus icon"></i></div>
-                            <ul class="sub-menu">
-                                <li><a href="category.html">Category Single</a></li>
-                                <li><a href="category_az.html">Category A-Z Index</a></li>
-                            </ul>
-                        </li>
+                        <li class="menu-item-has-children"><a href="${domainName}stores">Stores</a></li>
+                        <li class="menu-item-has-children"><a href="${domainName}categories">Categories</a></li>
                         <!-- <li class=""><a href="#"><i class="student icon"></i> Back To School</a></li> -->
                         <li class="">
                             <a href="#">Locations</a>
@@ -63,10 +51,9 @@
                                 <li><a href="$!{domainName}location/Bangalore">Bangalore</a></li>
                                 <li><a href="$!{domainName}location/Chennai">Chennai</a></li>
                                 <li><a href="$!{domainName}location/Delhi">Delhi</a></li>
+                                <li><a href="$!{domainName}location/Hyderabad">Hyderabad</a></li>
                                 <li><a href="$!{domainName}location/Mumbai">Mumbai</a></li>
                                 <li><a href="$!{domainName}location/Pune">Pune</a></li>
-                                <li><a href="$!{domainName}location/Hyderabad">Hyderabad</a></li>
-
                             </ul>
                         </li>
                         <li class="menu-item-has-children"><a href="page_submit.html"><i class="edit icon"></i> Submit Coupon</a>

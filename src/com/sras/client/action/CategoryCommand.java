@@ -1,5 +1,6 @@
 package com.sras.client.action;
 
+import java.net.URLDecoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -102,18 +103,21 @@ public class CategoryCommand extends Command {
 	public String doGet() throws Exception {
 		// To handle URL format like .../category/Accessories
 		String requestURI = (String) ctx.get("requestURI");
+		requestURI = URLDecoder.decode(requestURI, "UTF-8");
 		int i = requestURI.indexOf('/');
 		String parentCategoryName = null, subCategoryName = null;
 		if (i > 0 && requestURI.indexOf("category") == 0) {
-			parentCategoryName = requestURI.substring(i + 1);
-			// To handle URL format like .../category/Accessories/Bags
-			int j = parentCategoryName.indexOf('/');
-			subCategoryName = j > 0 ? parentCategoryName.substring(j + 1)
-					: null;
-
+			requestURI = requestURI.substring(i + 1);
+			if (requestURI.contains("/")) {
+				String[] names = requestURI.split("/");
+				parentCategoryName = names[0];
+				subCategoryName = names[1];
+			} else {
+				parentCategoryName = requestURI;
+			}
 			String name = (subCategoryName == null) ? parentCategoryName
 					: subCategoryName;
-			CategoryData catData = categoriesMap.get(name);
+			CategoryData catData = categoriesMap.get(name); 
 			ctx.put("catData", catData);
 			if (subCategoryName != null) {
 				ctx.put("parentCategoryName", parentCategoryName);

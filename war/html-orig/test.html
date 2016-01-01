@@ -1,0 +1,100 @@
+<div class="store-listing-item shadow-box">
+	<div class="store-thumb-link">
+		<div class="store-thumb">
+			<a href="#DOMAIN_NAME#store/#STORENAME#"><img
+				src="#COUPON_THUMB#" alt=""></a>
+		</div>
+		<div class="store-name">
+			<a href="#DOMAIN_NAME#store/#STORENAME#">#STORENAME_DISPLAY#<i
+				class="angle right icon"></i></a>
+		</div>
+	</div>
+	<div class="latest-coupon">
+		<h3 class="coupon-title">
+			<a href="#">#COUPON_TITLE#</a>
+		</h3>
+		<div class="coupon-des">
+			#COUPON_DESCRIPTION1#<span class="des-more">... <a href="#">More<i
+					class="angle down icon"></i></a></span>
+			<div class="coupon-des-full" style="display: none;">
+				#COUPON_DESCRIPTION2#<a class="des-less" href="#">Less<i
+					class="angle up icon"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="coupon-detail coupon-button-type">
+		<a href="#" class="coupon-button coupon-code" data-aff-url="#"><span
+			class="code-text">#COUPON_CODE#</span><span class="get-code">Get
+				Code</span></a>
+		<div class="exp-text">
+			Expires #COUPON_EXPIRY_DATE#<a title="Save This Coupon" href="#"
+				class="coupon-save"><i class="empty star icon"></i></a>
+		</div>
+	</div>
+	<!-- Coupon Modal -->
+	<div id="#COUPON_CODE_ID#"
+		class="ui modal coupon-modal coupon-code-modal">
+		<div class="coupon-header clearfix">
+			<div class="coupon-store-thumb">
+				<img src="#COUPON_THUMB#" alt="">
+			</div>
+			<div class="coupon-title">#COUPON_TITLE#</div>
+			<span class="close"></span>
+		</div>
+		<div class="coupon-content">
+			<p class="coupon-type-text">Copy this code and use at checkout</p>
+			<div class="modal-code">
+				<span class="code-text">#COUPON_CODE#</span>
+			</div>
+			<div class="clearfix">
+				<div class="user-ratting ui icon basic buttons">
+					<div class="ui button icon-popup" data-offset="0"
+						data-content="This worked" data-variation="inverted">
+						<i class="smile icon"></i>
+					</div>
+					<div class="ui button icon-popup" data-offset="0"
+						data-content="It did not work" data-variation="inverted">
+						<i class="frown icon"></i>
+					</div>
+					<div class="save-coupon ui button icon-popup" data-offset="0"
+						data-content="Save this coupon" data-variation="inverted">
+						<i class="empty star icon"></i>
+					</div>
+				</div>
+				<a href="#STORE_URL#" target="_blank"
+					class="ui button btn btn_secondary go-store">Go To Store<i
+					class="angle right icon"></i></a>
+			</div>
+			<div class="clearfix">
+				<span class="user-ratting-text">Did it work?</span><span
+					class="show-detail"><a href="#">Coupon Detail<i
+						class="angle down icon"></i></a></span>
+			</div>
+			<div class="coupon-popup-detail">
+				<p>#COUPON_POPUP_DETAIL#
+				<p>
+				<p>
+					<strong>Expires</strong>: #COUPON_EXPIRY_DATE#
+				</p>
+				<p>
+					<strong>Submitted</strong>: #COUPON_SUBMITTED#
+				</p>
+			</div>
+		</div>
+		<div class="coupon-footer">
+			<ul class="clearfix">
+				<li><span><i class="wifi icon"></i> #TOTAL_COUNT# People
+						Used, #TODAYS_COUNT# Today</span></li>
+				<li><a class="modal-share" href="#"><i
+						class="share alternate icon"></i> Share</a></li>
+			</ul>
+			<div class="share-modal-popup ui popup">
+				<a class="tiny ui facebook button"><i class="facebook icon"></i>Facebook</a><a
+					class="tiny ui twitter button"><i class="twitter icon"></i>Twitter</a><a
+					class="tiny ui google plus button"><i class="google plus icon"></i>Google
+					Plus</a><a class="tiny ui instagram button"><i
+					class="instagram icon"></i>Instagram</a>
+			</div>
+		</div>
+	</div>
+</div>

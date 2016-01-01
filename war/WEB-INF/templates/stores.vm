@@ -1,0 +1,55 @@
+<div id="content" class="site-content">
+    <section class="page-header-cover">
+        <div class="container">
+            <div class="inner">
+                <div class="inner-content clearfix">
+                    <div class="header-content">
+                        <h1>Stores & Brands</h1>
+                    </div>
+                    <div class="ui small breadcrumb">
+                        <a class="section">Home</a>
+                        <i class="right angle right icon divider"></i>
+                        <a class="section">Stores</a>
+                        <i class="right angle right icon divider"></i>
+                        <div class="active section">Browse Stores</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="content-wrap" class="container no-sidebar">
+
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+
+                <div class="content-box shadow-box">
+
+                    <section class="browse-store stackable ui grid">
+                        <div class="sixteen wide column">
+                            <div class="store-listing">
+
+                                <div class="store-listing-box store-popular-listing">
+                                    <div class="store-letter-heading">
+                                        <h2 class="section-heading">Featured Stores</h2>
+                                    </div>
+                                    <div class="store-letter-content">
+                                        <div id="popularStores" class="ui four column grid">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+            </main><!-- #main -->
+        </div><!-- #primary -->
+
+
+    </div> <!-- /#content-wrap -->
+
+</div> <!-- END .site-content -->

@@ -1,0 +1,104 @@
+    <section class="page-header-cover">
+        <div class="container">
+            <div class="inner">
+                <div class="inner-content clearfix">
+                    <div class="header-content">
+                        <h1>Browse Categories</h1>
+                    </div>
+                    <div class="ui small breadcrumb">
+                        <a class="section">Home</a>
+                        <i class="right angle right icon divider"></i>
+                        <a class="section">Categories</a>
+                        <i class="right angle right icon divider"></i>
+                        <div class="active section">Browse Categories</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="content-wrap" class="container no-sidebar">
+
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+
+                <div class="content-box shadow-box">
+                    <div class="three column ui grid cate-az">
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Automotive" class="category-parent"><i class="circular car icon"></i> Automotive</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Automotive/Auto Parts">Auto Parts</a></li>
+                                    <li><a href="$!{domainName}category/Automotive/Vehicles">Vehicles</a></li>
+                                    <li><a href="$!{domainName}category/Automotive/Truck">Truck</a></li>
+                                    <li><a href="$!{domainName}category/Automotive/Car Repair">Car Repair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Accessories" class="category-parent"><i class="circular rain icon"></i> Accessories</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Accessories/Bags">Bags</a></li>
+                                    <li><a href="$!{domainName}category/Accessories/Belts">Belts</a></li>
+                                    <li><a href="$!{domainName}category/Accessories/Clothing">Clothing</a></li>
+                                    <li><a href="$!{domainName}category/Accessories/Watches">Watches</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Books" class="category-parent"><i class="circular book icon"></i> Books</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Books/Art Books">Art Books</a></li>
+                                    <li><a href="$!{domainName}category/Books/Audiobooks">Audiobooks</a></li>
+                                    <li><a href="$!{domainName}category/Books/Comic Books">Comic Books</a></li>
+                                    <li><a href="$!{domainName}category/Books/E Books">E Books</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Electronics" class="category-parent"><i class="circular desktop icon"></i> Electronics</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Electronics/Cameras">Cameras</a></li>
+                                    <li><a href="$!{domainName}category/Electronics/Computers">Computers</a></li>
+                                    <li><a href="$!{domainName}category/Electronics/Gadgets">Gadgets</a></li>
+                                    <li><a href="$!{domainName}category/Electronics/Printers">Printers</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Food" class="category-parent"><i class="circular coffee icon"></i> Food</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Food/Bakery">Bakery</a></li>
+                                    <li><a href="$!{domainName}category/Food/Food Delivery">Food Delivery</a></li>
+                                    <li><a href="$!{domainName}category/Food/Coffee">Coffee</a></li>
+                                    <li><a href="$!{domainName}category/Food/Restaurants">Restaurants</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="cate-item column">
+                            <li class="cate-parent"><a href="$!{domainName}category/Home and Garden" class="category-parent"><i class="circular home icon"></i> Home and Garden</a>
+                                <ul class="cate-child">
+                                    <li><a href="$!{domainName}category/Home and Garden/Appliances">Appliances</a></li>
+                                    <li><a href="$!{domainName}category/Home and Garden/Bedding">Bedding</a></li>
+                                    <li><a href="$!{domainName}category/Home and Garden/Construction">Construction</a></li>
+                                    <li><a href="$!{domainName}category/Home and Garden/Gardening">Gardening</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </main><!-- #main -->
+        </div><!-- #primary -->
+
+
+    </div> <!-- /#content-wrap -->
+
+</div> <!-- END .site-content -->

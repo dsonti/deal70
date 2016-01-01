@@ -1,5 +1,6 @@
 package com.sras.client.action;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,7 @@ public class LocationCommand extends Command {
 	public String doGet() throws Exception {
 		// To handle URL format like .../category/Accessories
 		String requestURI = (String) ctx.get("requestURI");
+		requestURI = URLDecoder.decode(requestURI, "UTF-8");
 		String locations = "Bangalore, Chennai, Delhi, Mumbai, Pune, Hyderabad";
 		int i = requestURI.indexOf('/');
 		String locationName = null;
