@@ -43,7 +43,7 @@ public class DealViewDao extends BaseDao {
 		try {
 
 			String sql = "SELECT ID,STORE_ID,CATEGORY_ID,LOCATION,TITLE,DESCRIPTION1,DESCRIPTION2,"
-					+ "DEAL_CODE,STEPS_TO_CONSUME,VIEW_COUNT,IS_ACTIVE,DEAL_IMG_NAME,DEAL_URL,CREATE_DATE,EXPIRY_DATE,"
+					+ "DEAL_CODE,DEAL_TYPE,STEPS_TO_CONSUME,VIEW_COUNT,IS_ACTIVE,DEAL_IMG_NAME,DEAL_URL,CREATE_DATE,EXPIRY_DATE,"
 					+ "UPDATE_DATE,CREATED_BY,PRICE,DISCOUNT,DISCOUNTED_PRICE,"
 					+ "STORE_NAME,STORE_IMG_NAME,STORE_URL,CATEGORY_NAME,PARENT_ID FROM DEAL_DATA_VW WHERE 1=1 ";
 
@@ -99,6 +99,7 @@ public class DealViewDao extends BaseDao {
 				dealView.setDescription1(rs.getString("DESCRIPTION1"));
 				dealView.setDescription2(rs.getString("DESCRIPTION2"));
 				dealView.setCode(rs.getString("DEAL_CODE"));
+				dealView.setDealType(rs.getString("DEAL_TYPE"));
 				dealView.setStepsToConsume(rs.getString("STEPS_TO_CONSUME"));
 				dealView.setViewCount(rs.getLong("VIEW_COUNT"));
 				dealView.setIsActive(rs.getBoolean("IS_ACTIVE"));

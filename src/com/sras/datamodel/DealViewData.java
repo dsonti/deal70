@@ -11,6 +11,7 @@ public class DealViewData implements DataModel {
 	public String description1;
 	public String description2;
 	public String code;
+	public String dealType;
 	public String stepsToConsume;
 	public long viewCount;
 	public Boolean isActive = true;
@@ -93,6 +94,14 @@ public class DealViewData implements DataModel {
 
 	public void setCode(String code) {
 		this.code = code;
+	}
+
+	public String getDealType() {
+		return dealType;
+	}
+
+	public void setDealType(String dealType) {
+		this.dealType = dealType;
 	}
 
 	public String getStepsToConsume() {

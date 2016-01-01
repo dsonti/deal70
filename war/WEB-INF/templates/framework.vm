@@ -49,9 +49,7 @@
 		<style>
 			/* line 15, assets/sass/_elements.scss */
 			.primary-header {
-			  padding: 18px 0px;
 			  background: #47A987;
-			  color: rgba(255, 255, 255, 0.6);
 			}
 		</style>
 		

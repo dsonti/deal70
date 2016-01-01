@@ -1,6 +1,9 @@
 package com.sras.client.action;
 
 import java.net.URLDecoder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -13,6 +16,7 @@ import org.apache.velocity.context.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sras.dao.BaseDao;
 import com.sras.dao.DealViewDao;
 import com.sras.dao.StoreDao;
 import com.sras.datamodel.DataModel;
@@ -91,13 +95,11 @@ public class StoreCommand extends Command {
 			stData.setName(storeName);
 			StoreDao stDao = new StoreDao(stData);
 			stData = (StoreData) stDao.read();
-			if(stData != null)
-			{
+			if (stData != null) {
 				ctx.put("storeData", stData);
+				getStoreStats(stData.getId());
 				TEMPLATE_NAME = "store.vm";
-			}
-			else
-			{
+			} else {
 				TEMPLATE_NAME = "error.vm";
 			}
 		}
@@ -106,5 +108,23 @@ public class StoreCommand extends Command {
 
 	public String doAjaxPost() throws Exception {
 		return "ajax_template.vm";
+	}
+
+	public void getStoreStats(long storeId) throws Exception {
+		Connection con = BaseDao.getConnection();
+		PreparedStatement ps = con
+				.prepareStatement("SELECT DEAL_TYPE, COUNT(*) FROM DEAL_DATA_VW WHERE IS_ACTIVE = ? AND STORE_ID = ? GROUP BY DEAL_TYPE");
+		ps.setBoolean(1, true);
+		ps.setLong(2, storeId);
+		ResultSet rst = ps.executeQuery();
+		long totalCount = 0;
+		while (rst.next()) {
+			String codeType = rst.getString(1);
+			Long count = rst.getLong(2);
+			count = (count == null) ? new Long(0) : count;
+			ctx.put(codeType, count.longValue());
+			totalCount += count;
+		}
+		ctx.put("totalCount", totalCount);
 	}
 }

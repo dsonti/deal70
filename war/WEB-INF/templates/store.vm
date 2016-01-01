@@ -45,11 +45,10 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <section class="coupon-filter">
-                    <div class="ui pointing fluid four item menu">
-                        <a class="active item filter-nav">All <span class="offer-count">100</span></a>
-                        <a class="item filter-nav">Codes <span class="offer-count code-count">20</span></a>
-                        <a class="item filter-nav">Sales <span class="offer-count sale-count">40</span></a>
-                        <a class="item filter-nav">Prinable <span class="offer-count print-count">40</span></a>
+                    <div class="ui pointing fluid three item menu">
+                        <a class="active item filter-nav">All <span class="offer-count">$!totalCount</span></a>
+                        <a class="item filter-nav">Codes <span class="offer-count code-count">$!CODE</span></a>
+                        <a class="item filter-nav">Deals <span class="offer-count sale-count">$!DEAL</span></a>
                     </div>
                 </section>
 

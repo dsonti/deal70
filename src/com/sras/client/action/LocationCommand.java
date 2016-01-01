@@ -16,7 +16,7 @@ import com.sras.datamodel.DataModel;
 import com.sras.datamodel.DealViewData;
 
 public class LocationCommand extends Command {
-	private static String TEMPLATE_NAME = "location.vm";
+	private String TEMPLATE_NAME = "location.vm";
 	protected static Category log = Category.getInstance(MainCommand.class);
 
 	public LocationCommand(HttpServletRequest request,

@@ -1,6 +1,9 @@
 package com.sras.client.action;
 
 import java.net.URLDecoder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -14,6 +17,7 @@ import org.apache.velocity.context.Context;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sras.client.utils.Utilities;
+import com.sras.dao.BaseDao;
 import com.sras.dao.CategoryDao;
 import com.sras.dao.DealViewDao;
 import com.sras.datamodel.CategoryData;
@@ -23,7 +27,7 @@ import com.sras.datamodel.exceptions.DataModelException;
 import com.sras.datamodel.exceptions.TMException;
 
 public class CategoryCommand extends Command {
-	private static String TEMPLATE_NAME = "category.vm";
+	private String TEMPLATE_NAME = "category.vm";
 	protected static Category log = Category.getInstance(MainCommand.class);
 
 	static Hashtable<Long, String> subCategoriesMap = new Hashtable<Long, String>();
@@ -117,10 +121,20 @@ public class CategoryCommand extends Command {
 			}
 			String name = (subCategoryName == null) ? parentCategoryName
 					: subCategoryName;
-			CategoryData catData = categoriesMap.get(name); 
-			ctx.put("catData", catData);
-			if (subCategoryName != null) {
-				ctx.put("parentCategoryName", parentCategoryName);
+			CategoryData catData = categoriesMap.get(name);
+			if (catData != null) {
+				ctx.put("catData", catData);
+				if (subCategoryName != null) {
+					ctx.put("parentCategoryName", parentCategoryName);
+					getCategoryStats(catData.getId(), false);
+				}
+				else
+				{
+					getCategoryStats(catData.getId(), true);
+				}
+				TEMPLATE_NAME = "category.vm";
+			} else {
+				TEMPLATE_NAME = "error.vm";
 			}
 		}
 		// MailUtils.sendMail("itsras@gmail.com", "Test Mail", "Test Mail");
@@ -129,5 +143,31 @@ public class CategoryCommand extends Command {
 
 	public String doAjaxPost() throws Exception {
 		return "ajax_template.vm";
+	}
+
+	public void getCategoryStats(long categoryId, boolean isParent)
+			throws Exception {
+		String sql = "SELECT DEAL_TYPE, COUNT(*) FROM DEAL_DATA_VW WHERE IS_ACTIVE = ? ";
+
+		if (isParent) {
+			sql += " AND PARENT_ID = ? ";
+		} else {
+			sql += " AND CATEGORY_ID = ? ";
+		}
+
+		Connection con = BaseDao.getConnection();
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setBoolean(1, true);
+		ps.setLong(2, categoryId);
+		ResultSet rst = ps.executeQuery();
+		long totalCount = 0;
+		while (rst.next()) {
+			String codeType = rst.getString(1);
+			Long count = rst.getLong(2);
+			count = (count == null) ? new Long(0) : count;
+			ctx.put(codeType, count.longValue());
+			totalCount += count;
+		}
+		ctx.put("totalCount", totalCount);
 	}
 }
