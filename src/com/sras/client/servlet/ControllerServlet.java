@@ -31,14 +31,12 @@ import org.apache.velocity.servlet.VelocityServlet;
 import com.google.gson.Gson;
 import com.sras.client.action.CategoryCommand;
 import com.sras.client.action.Command;
-import com.sras.client.action.LoginCommand;
 import com.sras.client.action.StoreCommand;
 import com.sras.client.utils.ClientConstants;
 import com.sras.client.utils.Formatter;
 import com.sras.client.utils.SessionHelper;
 import com.sras.client.utils.Utilities;
 import com.sras.datamodel.UserData;
-import com.sras.datamodel.UserSessionData;
 
 @SuppressWarnings("deprecation")
 public class ControllerServlet extends VelocityServlet {
@@ -244,42 +242,32 @@ public class ControllerServlet extends VelocityServlet {
 			throws Exception, IOException, ServletException {
 		HttpSession session = request.getSession();
 
-		boolean noLoginRequired = pageDoesNotRequireLogin(page);
-		String puuid = Utilities.getCookieValue(request,
-				ClientConstants.COOKIE_NAME);
-		String suuid = (String) session.getAttribute("uuid");
-
-		if (suuid != null && puuid == null) {
-			UserSessionData usd = SessionHelper.getUserSession(suuid);
-			if (usd == null && !noLoginRequired) {
-				removeSesstionAttributes(session);
-				Command.redirectToLoginPage(request, response, ctx);
-			}
-		} else if (suuid != null && puuid != null) {
-			UserSessionData usd = SessionHelper.getUserSession(suuid);
-			if (usd == null && !noLoginRequired) {
-				removeSesstionAttributes(session);
-				Command.redirectToLoginPage(request, response, ctx);
-			}
-		} else if (suuid == null && puuid != null) {
-			log.debug("Before Login UUID ::" + puuid);
-			UserData user = SessionHelper.getUserFromSession(puuid);
-			if (user == null && !noLoginRequired) {
-				removeSesstionAttributes(session);
-				Utilities.removeCookie(response, ClientConstants.COOKIE_NAME);
-				Command.redirectToLoginPage(request, response, ctx);
-			}
-			if (user != null) {
-				SessionHelper
-						.updateUserSession(request, puuid, user.getId(), 0);
-				LoginCommand.setLoginAttributes(session, request, user, puuid,
-						LoginCommand.LoginType.COOKIE_BASED_AUTHENTICATION
-								.toString());
-			}
-		} else if (suuid == null && puuid == null && !noLoginRequired) {
-			removeSesstionAttributes(session);
-			Command.redirectToLoginPage(request, response, ctx);
-		}
+		/*
+		 * boolean noLoginRequired = pageDoesNotRequireLogin(page); String puuid
+		 * = Utilities.getCookieValue(request, ClientConstants.COOKIE_NAME);
+		 * String suuid = (String) session.getAttribute("uuid");
+		 * 
+		 * if (suuid != null && puuid == null) { UserSessionData usd =
+		 * SessionHelper.getUserSession(suuid); if (usd == null &&
+		 * !noLoginRequired) { removeSesstionAttributes(session);
+		 * Command.redirectToLoginPage(request, response, ctx); } } else if
+		 * (suuid != null && puuid != null) { UserSessionData usd =
+		 * SessionHelper.getUserSession(suuid); if (usd == null &&
+		 * !noLoginRequired) { removeSesstionAttributes(session);
+		 * Command.redirectToLoginPage(request, response, ctx); } } else if
+		 * (suuid == null && puuid != null) { log.debug("Before Login UUID ::" +
+		 * puuid); UserData user = SessionHelper.getUserFromSession(puuid); if
+		 * (user == null && !noLoginRequired) {
+		 * removeSesstionAttributes(session); Utilities.removeCookie(response,
+		 * ClientConstants.COOKIE_NAME); Command.redirectToLoginPage(request,
+		 * response, ctx); } if (user != null) { SessionHelper
+		 * .updateUserSession(request, puuid, user.getId(), 0);
+		 * LoginCommand.setLoginAttributes(session, request, user, puuid,
+		 * LoginCommand.LoginType.COOKIE_BASED_AUTHENTICATION .toString()); } }
+		 * else if (suuid == null && puuid == null && !noLoginRequired) {
+		 * removeSesstionAttributes(session);
+		 * Command.redirectToLoginPage(request, response, ctx); }
+		 */
 	}
 
 	private static void removeSesstionAttributes(HttpSession session) {
@@ -459,12 +447,11 @@ public class ControllerServlet extends VelocityServlet {
 	}
 
 	private boolean pageDoesNotRequireLogin(String page) {
-		return true;
-		/*
-		 * return page != null && (page.equalsIgnoreCase("copyright") ||
-		 * page.equalsIgnoreCase("login") || page.equalsIgnoreCase("logout") ||
-		 * page .equalsIgnoreCase("signup"));
-		 */
+		if (page == null) {
+			return false;
+		}
+		String publicPages = "login,home,store,stores,category,categories,location,copyright,logout,login,signup";
+		return (publicPages.indexOf(page) >= 0);
 	}
 
 	@Override
@@ -514,21 +501,5 @@ public class ControllerServlet extends VelocityServlet {
 			}
 			log.info(logMessage);
 		}
-	}
-
-	@SuppressWarnings("unused")
-	private void handleException(Boolean errorOccurred, Exception e,
-			Context context) {
-		errorOccurred = true;
-		log.error(e.getMessage(), e);
-		context.put(ClientConstants.errorTextVariableName, e);
-	}
-
-	@SuppressWarnings("unused")
-	private void handleException(Boolean errorOccurred, String errorMessage,
-			Context context) {
-		errorOccurred = true;
-		context.put(ClientConstants.errorTextVariableName, errorMessage);
-		log.error(errorMessage);
 	}
 }

@@ -127,9 +127,7 @@ public class CategoryCommand extends Command {
 				if (subCategoryName != null) {
 					ctx.put("parentCategoryName", parentCategoryName);
 					getCategoryStats(catData.getId(), false);
-				}
-				else
-				{
+				} else {
 					getCategoryStats(catData.getId(), true);
 				}
 				TEMPLATE_NAME = "category.vm";
@@ -154,20 +152,25 @@ public class CategoryCommand extends Command {
 		} else {
 			sql += " AND CATEGORY_ID = ? ";
 		}
-
-		Connection con = BaseDao.getConnection();
-		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setBoolean(1, true);
-		ps.setLong(2, categoryId);
-		ResultSet rst = ps.executeQuery();
-		long totalCount = 0;
-		while (rst.next()) {
-			String codeType = rst.getString(1);
-			Long count = rst.getLong(2);
-			count = (count == null) ? new Long(0) : count;
-			ctx.put(codeType, count.longValue());
-			totalCount += count;
+		PreparedStatement ps = null;
+		ResultSet rst = null;
+		try {
+			Connection con = BaseDao.getConnection();
+			ps = con.prepareStatement(sql);
+			ps.setBoolean(1, true);
+			ps.setLong(2, categoryId);
+			rst = ps.executeQuery();
+			long totalCount = 0;
+			while (rst.next()) {
+				String codeType = rst.getString(1);
+				Long count = rst.getLong(2);
+				count = (count == null) ? new Long(0) : count;
+				ctx.put(codeType, count.longValue());
+				totalCount += count;
+			}
+			ctx.put("totalCount", totalCount);
+		} finally {
+			BaseDao.close(ps, rst);
 		}
-		ctx.put("totalCount", totalCount);
 	}
 }

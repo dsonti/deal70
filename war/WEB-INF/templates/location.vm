@@ -45,8 +45,15 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
 
+				<section class="coupon-filter">
+                    <div class="ui pointing fluid three item menu">
+                        <a class="active item filter-nav">All <span class="offer-count">$!totalCount</span></a>
+                        <a class="item filter-nav">Codes <span class="offer-count code-count">$!CODE</span></a>
+                        <a class="item filter-nav">Deals <span class="offer-count sale-count">$!DEAL</span></a>
+                    </div>
+                </section>
                 <section id="store-listings-wrapper" class="wpb_content_element">
-                    <h2 class="section-heading">Current Top $!locationName Location Coupons</h2>
+                    <!-- <h2 class="section-heading">Current Top $!locationName Location Coupons</h2> -->
                     <div class="store-listings">
                     </div>						
                 </section>

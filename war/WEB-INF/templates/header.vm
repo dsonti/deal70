@@ -145,13 +145,21 @@
                                 <a class="more-links" href="#">See all your favorite stores <i class="angle right icon"></i></a>
                             </div>
                         </li>
+                        #if($userName)
+                        <li class="menu-item-has-children"><a href="user_dashboard.html"><i class="power icon"></i> Dashboard ($!userName)</a>
+                        #else
                         <li class="menu-item-has-children"><a href="user_dashboard.html"><i class="power icon"></i> Dashboard</a>
+                        #end
                             <ul class="sub-menu">
-                                <li><a href="#" class="stuser-login-btn">Sign In Form</a></li>
-                                <li><a href="#" class="st-singup-btn">Register Form</a></li>
-                                <li><a href="user_dashboard.html">Dashboard Page</a></li>
-                                <li><a href="user_edit.html">Account Settings</a></li>
-                                <li><a href="#">Sign Out</a></li>
+                            	#if(!$userName)
+                                <li><a id="loginBtn" href="#" class="stuser-login-btn">Sign In</a></li>
+                                #end
+                                <li><a href="#" class="st-singup-btn">Register</a></li>
+                                <li><a href="user_dashboard.html">Dashboard</a></li>
+                                <li><a href="user_edit.html">Settings</a></li>
+                                #if($userName)
+                                <li><a id="logoutBtn" href="#" class="stuser-logout-btn">Sign Out</a></li>
+                                #end
                             </ul>
                         </li>
                     </ul>

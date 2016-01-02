@@ -111,20 +111,25 @@ public class StoreCommand extends Command {
 	}
 
 	public void getStoreStats(long storeId) throws Exception {
-		Connection con = BaseDao.getConnection();
-		PreparedStatement ps = con
-				.prepareStatement("SELECT DEAL_TYPE, COUNT(*) FROM DEAL_DATA_VW WHERE IS_ACTIVE = ? AND STORE_ID = ? GROUP BY DEAL_TYPE");
-		ps.setBoolean(1, true);
-		ps.setLong(2, storeId);
-		ResultSet rst = ps.executeQuery();
-		long totalCount = 0;
-		while (rst.next()) {
-			String codeType = rst.getString(1);
-			Long count = rst.getLong(2);
-			count = (count == null) ? new Long(0) : count;
-			ctx.put(codeType, count.longValue());
-			totalCount += count;
+		PreparedStatement ps = null;
+		ResultSet rst = null;
+		try {
+			Connection con = BaseDao.getConnection();
+			ps = con.prepareStatement("SELECT DEAL_TYPE, COUNT(*) FROM DEAL_DATA_VW WHERE IS_ACTIVE = ? AND STORE_ID = ? GROUP BY DEAL_TYPE");
+			ps.setBoolean(1, true);
+			ps.setLong(2, storeId);
+			rst = ps.executeQuery();
+			long totalCount = 0;
+			while (rst.next()) {
+				String codeType = rst.getString(1);
+				Long count = rst.getLong(2);
+				count = (count == null) ? new Long(0) : count;
+				ctx.put(codeType, count.longValue());
+				totalCount += count;
+			}
+			ctx.put("totalCount", totalCount);
+		} finally {
+			BaseDao.close(ps, rst);
 		}
-		ctx.put("totalCount", totalCount);
 	}
 }

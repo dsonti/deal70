@@ -84,7 +84,7 @@ public class LoginCommand extends Command {
 		return loginFailureCount;
 	}
 
-	private String handleLogin() throws Exception {
+	public String handleLogin() throws Exception {
 		String userName = addToContext("lusername", false);
 		String password = request.getParameter("password");
 		String rememberUserNameString = request

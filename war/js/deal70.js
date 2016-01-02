@@ -270,56 +270,71 @@ function lastAddedLiveFunc(data) {
 	});
 };
 
-$(document).ready(
-		function() {
-			// Load deals in Home, Store and Category pages...
-			var id = $('.btn_primary').attr("id");
-			if (id == "loadCoupons") {
-				fetchDeals("/?ajax=true&page=Home");
-			}
-			if (id == "loadStoreCoupons") {
-				var name = document.getElementById("stname").value;
-				fetchDeals("/?ajax=true&page=store&name=" + name);
-			}
-			if (id == "loadCatCoupons") {
-				var cid = document.getElementById("cid").value;
-				fetchDeals("/?ajax=true&page=category&cid=" + cid);
-			}
-			if (id == "loadLocCoupons") {
-				var lName = document.getElementById("locationName").value;
-				fetchDeals("/?ajax=true&page=location&name=" + lName);
-			}
+$(document).ready(function() {
+	// Load deals in Home, Store and Category pages...
+	var id = $('.btn_primary').attr("id");
+	if (id == "loadCoupons") {
+		fetchDeals("/?ajax=true&page=Home");
+	}
+	if (id == "loadStoreCoupons") {
+		var name = document.getElementById("stname").value;
+		fetchDeals("/?ajax=true&page=store&name=" + name);
+	}
+	if (id == "loadCatCoupons") {
+		var cid = document.getElementById("cid").value;
+		fetchDeals("/?ajax=true&page=category&cid=" + cid);
+	}
+	if (id == "loadLocCoupons") {
+		var lName = document.getElementById("locationName").value;
+		fetchDeals("/?ajax=true&page=location&name=" + lName);
+	}
 
-			// Load popular stores widget...
-			loadPopularStores();
+	// Load popular stores widget...
+	loadPopularStores();
 
-			// Load popular categories widget...
-			loadPopularCategories();
+	// Load popular categories widget...
+	loadPopularCategories();
 
-			$('.btn_primary').click(function(event) {
-				if ($(this).attr("id") == "loadCoupons") {
-					fetchDeals("/?ajax=true&page=Home");
-				}
-				if ($(this).attr("id") == "loadStoreCoupons") {
-					var name = document.getElementById("stname").value;
-					fetchDeals("/?ajax=true&page=store&name=" + name);
-				}
-				if ($(this).attr("id") == "loadCatCoupons") {
-					var cid = document.getElementById("cid").value;
-					fetchDeals("/?ajax=true&page=category&cid=" + cid);
-				}
-				if ($(this).attr("id") == "loadLocCoupons") {
-					var lName = document.getElementById("locationName").value;
-					fetchDeals("/?ajax=true&page=location&name=" + lName);
-				}
-			});
+	$('.btn_primary').click(function(event) {
+		if ($(this).attr("id") == "loadCoupons") {
+			fetchDeals("/?ajax=true&page=Home");
+		}
+		if ($(this).attr("id") == "loadStoreCoupons") {
+			var name = document.getElementById("stname").value;
+			fetchDeals("/?ajax=true&page=store&name=" + name);
+		}
+		if ($(this).attr("id") == "loadCatCoupons") {
+			var cid = document.getElementById("cid").value;
+			fetchDeals("/?ajax=true&page=category&cid=" + cid);
+		}
+		if ($(this).attr("id") == "loadLocCoupons") {
+			var lName = document.getElementById("locationName").value;
+			fetchDeals("/?ajax=true&page=location&name=" + lName);
+		}
+	});
 
-			/*
-			 * $(window).scroll(function(){ var wintop = $(window).scrollTop(),
-			 * docheight = $(document).height(), winheight = $(window).height();
-			 * var scrolltrigger = 0.75;
-			 * 
-			 * if ((wintop/(docheight-winheight)) > scrolltrigger) {
-			 * //console.log('scroll bottom'); fetchDeals(); } });
-			 */
+	/*
+	 * $(window).scroll(function(){ var wintop = $(window).scrollTop(),
+	 * docheight = $(document).height(), winheight = $(window).height(); var
+	 * scrolltrigger = 0.75;
+	 * 
+	 * if ((wintop/(docheight-winheight)) > scrolltrigger) {
+	 * //console.log('scroll bottom'); fetchDeals(); } });
+	 */
+	
+	$('#loginBtn').click(function(event){
+		checkLoginState();
+	});
+	
+	$('#logoutBtn').click(function(event){
+		$.ajax({
+			url : $('#domainName').val() + "?ltype=logout",
+			type : "POST",
+			success : function(result) {
+				window.location.href = window.location.href;
+			},
+			error : function(result) {
+			}
 		});
+	});
+});

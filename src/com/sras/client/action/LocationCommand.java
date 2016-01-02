@@ -1,6 +1,9 @@
 package com.sras.client.action;
 
 import java.net.URLDecoder;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +14,7 @@ import org.apache.velocity.context.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.sras.dao.BaseDao;
 import com.sras.dao.DealViewDao;
 import com.sras.datamodel.DataModel;
 import com.sras.datamodel.DealViewData;
@@ -54,6 +58,7 @@ public class LocationCommand extends Command {
 			locationName = requestURI.substring(i + 1);
 			if (locations.indexOf(locationName) >= 0) {
 				ctx.put("locationName", locationName);
+				getLocationStats(locationName);
 				TEMPLATE_NAME = "location.vm";
 			} else {
 				TEMPLATE_NAME = "error.vm";
@@ -65,5 +70,28 @@ public class LocationCommand extends Command {
 
 	public String doAjaxPost() throws Exception {
 		return "ajax_template.vm";
+	}
+
+	public void getLocationStats(String location) throws Exception {
+		PreparedStatement ps = null;
+		ResultSet rst = null;
+		try {
+			Connection con = BaseDao.getConnection();
+			ps = con.prepareStatement("SELECT DEAL_TYPE, COUNT(*) FROM DEAL_DATA_VW WHERE IS_ACTIVE = ? AND LOCATION = ? GROUP BY LOCATION");
+			ps.setBoolean(1, true);
+			ps.setString(2, location);
+			rst = ps.executeQuery();
+			long totalCount = 0;
+			while (rst.next()) {
+				String codeType = rst.getString(1);
+				Long count = rst.getLong(2);
+				count = (count == null) ? new Long(0) : count;
+				ctx.put(codeType, count.longValue());
+				totalCount += count;
+			}
+			ctx.put("totalCount", totalCount);
+		} finally {
+			BaseDao.close(ps, rst);
+		}
 	}
 }

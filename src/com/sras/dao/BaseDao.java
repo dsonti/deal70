@@ -75,7 +75,7 @@ public abstract class BaseDao {
 	 * @param rs
 	 *            the resultset to close
 	 */
-	public void close(PreparedStatement stmt, ResultSet rs) throws TMException {
+	public static void close(PreparedStatement stmt, ResultSet rs) throws TMException {
 		logger.debug("in close(pstmt, rset)");
 		if (rs != null)
 			try {

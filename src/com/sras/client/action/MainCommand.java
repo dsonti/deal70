@@ -51,4 +51,9 @@ public class MainCommand extends Command {
 	public String doAjaxPost() throws Exception {
 		return "ajax_template.vm";
 	}
+	
+	public String doPost() throws Exception {
+		FacebookLoginCommand cmd = new FacebookLoginCommand(request, response, ctx);
+		return cmd.doPost();
+	}
 }

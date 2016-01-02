@@ -1,0 +1,24 @@
+<!-- Coupon Modal -->
+<div id="login"
+	class="ui modal coupon-modal coupon-code-modal">
+	<div class="coupon-header clearfix">
+		<div class="coupon-store-thumb">
+			<img src="$!{domainName}assets/images/logo.png" alt="">
+		</div>
+		<div class="coupon-title">Sign in to Deal70</div>
+		<span class="close"></span>
+	</div>
+	<div class="coupon-content">
+		<div class="clearfix">
+			<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
+		</div>
+	</div>
+	<div class="coupon-footer">
+		<div class="share-modal-popup ui popup">
+			<a >Forgot your password?</a>
+			<br>
+			Don't have an account? <a>Sign Up</a>
+		</div>
+	</div>
+</div>
