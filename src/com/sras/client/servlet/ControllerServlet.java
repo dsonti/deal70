@@ -28,6 +28,7 @@ import org.apache.velocity.exception.ParseErrorException;
 import org.apache.velocity.exception.ResourceNotFoundException;
 import org.apache.velocity.servlet.VelocityServlet;
 
+import com.google.appengine.api.utils.SystemProperty;
 import com.google.gson.Gson;
 import com.sras.client.action.CategoryCommand;
 import com.sras.client.action.Command;
@@ -231,7 +232,13 @@ public class ControllerServlet extends VelocityServlet {
 		long stopTime = System.currentTimeMillis();
 		ctx.put("elapsedTime", new Long(stopTime - startTime));
 		ctx.put("startTimeServlet", new Long(startTime));
-		ctx.put("domainName", ClientConstants.domainName);
+		String domainName;
+		if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
+			domainName = "http://1-dot-deal70-1164.appspot.com/";
+		} else {
+			domainName = ClientConstants.domainName;
+		}
+		ctx.put("domainName", domainName);
 
 		setDefaultContextVariables(request, response, ctx);
 		return template;

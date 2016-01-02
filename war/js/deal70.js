@@ -321,19 +321,22 @@ $(document).ready(function() {
 	 * if ((wintop/(docheight-winheight)) > scrolltrigger) {
 	 * //console.log('scroll bottom'); fetchDeals(); } });
 	 */
-	
-	$('#loginBtn').click(function(event){
+});
+
+$(document).ready(function() {
+	$('#loginBtn').click(function(event) {
 		checkLoginState();
 	});
-	
-	$('#logoutBtn').click(function(event){
+
+	$('#logoutBtn').click(function(event) {
 		$.ajax({
-			url : $('#domainName').val() + "?ltype=logout",
+			url : $('#domainName').val() + "?ajax=true&ltype=logout",
 			type : "POST",
 			success : function(result) {
-				window.location.href = window.location.href;
+					window.location.href = window.location.href;
 			},
 			error : function(result) {
+				alert("Error :" + result);
 			}
 		});
 	});

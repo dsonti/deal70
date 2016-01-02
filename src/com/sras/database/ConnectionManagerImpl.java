@@ -37,12 +37,11 @@ public final class ConnectionManagerImpl {
 				// Load the class that provides the new "jdbc:google:mysql://"
 				// prefix.
 				driverClassName = "com.mysql.jdbc.GoogleDriver";
-				url = "jdbc:google:mysql://deal70-1146:deal70/deal70?user=root";
+				url = "jdbc:google:mysql://deal70-1146:deal70db?user=root";
 			} else {
 				// Local MySQL instance to use during development.
 				driverClassName = "com.mysql.jdbc.Driver";
 				url = "jdbc:mysql://127.0.0.1:3306/deal70?user=root";
-
 				// Alternatively, connect to a Google Cloud SQL instance using:
 				// jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
 			}

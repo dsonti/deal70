@@ -74,7 +74,6 @@ window.fbAsyncInit = function() {
 function testAPI() {
 	console.log('Welcome!  Fetching your information.... ');
 	FB.api('/me', function(response) {
-		alert(JSON.stringify(response));
 		console.log('Successful login for: ' + response.name);
 		$('#login').modal('hide');
 		if (document.getElementById("loginParameters").value == "") {
@@ -84,13 +83,14 @@ function testAPI() {
 
 			// $('#signInForm').submit();
 			$.ajax({
-				url : $('#domainName').val() + "?ltype=" + $('#ltype').val()
+				url : $('#domainName').val() + "?ajax=true&ltype=" + $('#ltype').val()
 						+ "&loginParameters=" + JSON.stringify(response),
 				type : "POST",
 				success : function(result) {
 					window.location.href = window.location.href;
 				},
 				error : function(result) {
+					alert(result);
 				}
 			});
 		}

@@ -152,13 +152,13 @@
                         #end
                             <ul class="sub-menu">
                             	#if(!$userName)
-                                <li><a id="loginBtn" href="#" class="stuser-login-btn">Sign In</a></li>
+                                <li><a id="loginBtn" href="" class="stuser-login-btn">Sign In</a></li>
                                 #end
                                 <li><a href="#" class="st-singup-btn">Register</a></li>
                                 <li><a href="user_dashboard.html">Dashboard</a></li>
                                 <li><a href="user_edit.html">Settings</a></li>
                                 #if($userName)
-                                <li><a id="logoutBtn" href="#" class="stuser-logout-btn">Sign Out</a></li>
+                                <li><a id="logoutBtn" href="" class="stuser-logout-btn">Sign Out</a></li>
                                 #end
                             </ul>
                         </li>

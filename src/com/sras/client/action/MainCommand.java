@@ -49,11 +49,16 @@ public class MainCommand extends Command {
 	}
 
 	public String doAjaxPost() throws Exception {
+		String ltype = request.getParameter("ltype");
+		if (ltype != null) {
+			FacebookLoginCommand cmd = new FacebookLoginCommand(request,
+					response, ctx);
+			String template = cmd.doPost();
+		}
 		return "ajax_template.vm";
 	}
-	
+
 	public String doPost() throws Exception {
-		FacebookLoginCommand cmd = new FacebookLoginCommand(request, response, ctx);
-		return cmd.doPost();
+		return TEMPLATE_NAME;
 	}
 }
