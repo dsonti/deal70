@@ -103,7 +103,10 @@ public class StoreDao extends BaseDao {
 				sql += AND + "`NAME` = ? ";
 				bindVars.add(SQLValue.String(store.getName()));
 			}
-
+			if (store.getSearchStr() != null) {
+				sql += AND + "`NAME` like ? ";
+				bindVars.add(SQLValue.String("%" + store.getSearchStr() + "%"));
+			}
 			logger.debug("QUERY - Loading Store :" + sql);
 			rst = executeQuery(sql, bindVars);
 			ArrayList<DataModel> stores = new ArrayList<DataModel>();

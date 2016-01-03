@@ -15,6 +15,8 @@ public class StoreData extends WithId {
 	public Date createDate;
 	public Date updateDate;
 	public String createdBy;
+	
+	public String searchStr;
 
 	public Long getViewCount() {
 		return viewCount;
@@ -111,5 +113,13 @@ public class StoreData extends WithId {
 
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
+	}
+
+	public String getSearchStr() {
+		return searchStr;
+	}
+
+	public void setSearchStr(String searchStr) {
+		this.searchStr = searchStr;
 	}
 }

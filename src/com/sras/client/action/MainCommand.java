@@ -15,8 +15,10 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sras.client.utils.Utilities;
 import com.sras.dao.DealViewDao;
+import com.sras.dao.StoreDao;
 import com.sras.datamodel.DataModel;
 import com.sras.datamodel.DealViewData;
+import com.sras.datamodel.StoreData;
 
 public class MainCommand extends Command {
 	private static String TEMPLATE_NAME = "index.vm";
@@ -58,11 +60,22 @@ public class MainCommand extends Command {
 
 	public String doAjaxPost() throws Exception {
 		String ltype = request.getParameter("ltype");
+		String storeName = request.getParameter("search");
+		String jsonStr = "[]";
+		if (storeName != null && storeName.trim().length() > 0) {
+			StoreData stData = new StoreData();
+			stData.setSearchStr(storeName);
+			StoreDao stDao = new StoreDao(stData);
+			ArrayList<DataModel> stores = stDao.enumerate();
+			Gson gson = new GsonBuilder().create();
+			jsonStr = gson.toJson(stores, ArrayList.class);
+		}
 		if (ltype != null) {
 			FacebookLoginCommand cmd = new FacebookLoginCommand(request,
 					response, ctx);
 			String template = cmd.doPost();
 		}
+		ctx.put("ajax_response_data", jsonStr);
 		return "ajax_template.vm";
 	}
 

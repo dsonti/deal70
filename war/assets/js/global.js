@@ -125,81 +125,11 @@ jQuery(document).ready(function() {
     ( function() {
         // submit search form when click button
         $( 'form#header-search .button').click( function(){
-            $( this ).closest('form').submit();
-        } );
+        	searchStores();
+        });
 
-        $('.ui.search').search({
-            //source: content
-            apiSettings: {
-                url: ST.ajax_url+'?s={query}',
-                method : 'POST',
-
-                data: {
-                    action: 'st_coupon_ajax',
-                    st_doing: 'ajax_search',
-                    _wpnonce: ST._wpnonce,
-                    //name: 'Joe Henderson'
-                },
-
-                onSuccess: function(response) {
-
-                    var r;
-                    if ( $( this).find( '.results').length > 0 ) {
-
-                    } else {
-                        $( this).append( '<div class="results"></div>' );
-                    }
-
-                    r =  $( this).find( '.results');
-                    var html = '';
-                    if ( response.results.length > 0  ) {
-                        $( response.results ).each( function( index, result ){
-                            html+=  '<div class="result">' +
-                                '<a href="' + result.url + '"></a>' +
-                                '<div class="image">'+result.image+'</div>'+
-                                '<div class="content">' +
-                                '<div class="title">'+result.title+'</div>' +
-                                '<div class="description">'+result.description+'</div>' +
-                                '</div>' +
-                                '</div>';
-                        } );
-
-                        if ( html !== '' ) {
-
-                            var w =  $( this).find( '.prompt').outerWidth();
-                            if( typeof response.action !== "undefined" ) {
-                                html+='<a class="action" href="'+response.action.url+'">'+response.action.text+'</a>';
-                            }
-                            r.html(html);
-                            r.css( { 'width': w+'px' } ).addClass('items ui transition visible');
-                        }
-
-                    } else {
-                        r.removeClass('items ui transition visible');
-                    }
-
-                    // transition visible
-                },
-
-                onResponse: function(response) {
-                    // make some adjustments to response
-                    //console.log( 'onResponse' );
-                    // console.log( response );
-                    return response;
-                },
-                successTest: function(response) {
-                    // test whether a json response is valid
-                    //console.log( 'successTest' );
-                    // console.log( response.success );
-                    return response.success || false;
-                }
-            },
-            //minCharacters: 3,
-            searchFullText: false,
-            cache: false,
-            debug: false,
-            verbose: false
-            //type: 'sta',
+        $('#searchStr').keyup(function() {
+        	searchStores();
         });
     } )();
 
@@ -242,6 +172,57 @@ jQuery(document).ready(function() {
     } );
 
 });
+
+function searchStores()
+{
+	var r;
+	$.ajax({
+		url : $('#domainName').val() + "?ajax=true&search="+$('#searchStr').val(),
+		type : "POST",
+		success : function(result) {
+			var obj = JSON.parse(result);
+			//[{"name":"Amazon","imageName":"amazon.png","url":"http://www.amazon.in","isPopular":true,"isOnline":true,"viewCount":0,
+			//"createDate":"Dec 30, 2015 10:42:13 PM","updateDate":"Dec 30, 2015 10:42:13 PM","createdBy":"itsras@gmail.com","id":2,
+			//"loaded":true}]  
+
+            if (  $('.ui.search').find( '.results').length > 0 ) {
+
+            } else {
+            	 $('.ui.search').append( '<div class="results"></div>' );
+            }
+
+            r =   $('.ui.search').find( '.results');
+            var html = '';
+            if ( obj.length > 0  ) {
+				for(var i =0;i < obj.length;i++)
+				{
+						html+=  '<div class="result">'+
+                        '<a href="' + $('#domainName').val() +'store/'+obj[i].name +'"></a>' +
+                        '<div class="image">'+
+                        '<img src="'+$('#domainName').val()+"thumb/stores/"+obj[i].imageName+'"></a></div>'+
+                        '<div class="content">' +
+                        '<div class="title">'+obj[i].name+'</div>' +
+                        '<div class="description"></div>' +
+                        '</div>'+
+                        '</div>';
+				}
+            }
+            if ( html !== '' ) {
+                var w =  $('.ui.search').find( '.prompt').outerWidth();
+                html+='<a class="action" href="'+$('#domainName').val() +'stores'+'">'+'Show All Stores'+'</a>';
+                r.html(html);
+                r.css( { 'width': w+'px' } ).addClass('items ui transition visible');
+            }
+            else {
+            	r.html(html);
+            	r.removeClass('items ui transition visible');
+            }
+		},
+		error : function(result) {
+			r.removeClass('items ui transition visible');
+		}
+	});	
+}
 
 jQuery(document).mouseup(function (e){
 	var $ = jQuery;
