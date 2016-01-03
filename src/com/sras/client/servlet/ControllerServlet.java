@@ -233,13 +233,16 @@ public class ControllerServlet extends VelocityServlet {
 		ctx.put("elapsedTime", new Long(stopTime - startTime));
 		ctx.put("startTimeServlet", new Long(startTime));
 		String domainName;
+		String facebookAppId;
 		if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
 			domainName = "http://1-dot-deal70-1164.appspot.com/";
+			facebookAppId = "1666864453560507";
 		} else {
 			domainName = ClientConstants.domainName;
+			facebookAppId = "201919383155442";
 		}
 		ctx.put("domainName", domainName);
-
+		ctx.put("facebookAppId", facebookAppId);
 		setDefaultContextVariables(request, response, ctx);
 		return template;
 	}

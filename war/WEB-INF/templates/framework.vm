@@ -38,9 +38,9 @@
 	    <!-- Header JS -->
 	    <script src="$!{domainName}assets/js/jquery-1.11.1.min.js"></script>
 	
+	    <script src="$!{domainName}js/facebook.js"></script>
 	    <script src="$!{domainName}js/deal70.js"></script>
 	    <script src="$!{domainName}js/jquery.timeago.js"></script>
-	    <script src="$!{domainName}js/facebook.js"></script>
 	    
 	
 	    <!-- PLUGIN CSS -->
@@ -61,7 +61,6 @@
 		#end
 		#parse($body)
 		#parse("footer.vm")
-		<input type="hidden" id="domainName" name="domainName" value="$!domainName">
 		<script>
 			#if ($pageTitle)
 				#set ($singleLineTitle = $Formatter.makeSingleLine($pageTitle))
@@ -69,8 +68,12 @@
 			#end
 		</script>
 		
+		<input type="hidden" id="domainName" name="domainName" value="$!domainName">
+		<input type="hidden" id="userName" name="userName" value="$!userName">
+		<input type="hidden" id="facebookAppId" name="facebookAppId" value="$!facebookAppId">
+		
 		<!-- Coupon Modal -->
-		<div id="login" class="ui modal coupon-modal coupon-code-modal" style="display:none; background-size:100%;background-image:url($!{domainName}img/login-bg.jpg);background-repeat: no-repeat;">
+		<div id="loginModal" class="ui modal coupon-modal coupon-code-modal" style="display:none; background-size:100%;background-image:url($!{domainName}img/login-bg.jpg);background-repeat: no-repeat;">
 			<div class="coupon-header clearfix">
 				<div class="coupon-title">Sign in to Deal70</div>
 				<span class="close"></span>
@@ -95,11 +98,6 @@
 				</center>
 			</div>
 		</div>
-		
-		<form id="signInForm" action="$!{domainName}" method="POST">
-			<input type="hidden" id="redirectUrl" name="redirectUrl" value="">
-			<input type="hidden" id="loginParameters" name="loginParameters" value="$!{userName}">
-			<input type="hidden" id="ltype" name="ltype" value="">
-		</form>
+		<!-- End Coupon Modal -->
 	</body>
 </html>

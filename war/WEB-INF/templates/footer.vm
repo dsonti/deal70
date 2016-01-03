@@ -115,6 +115,3 @@
 <script src="$!{domainName}assets/ST-User/js/user.js"></script>
 
 #includeUtilitiesJs()
-
-</body>
-</html>

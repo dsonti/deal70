@@ -1,5 +1,8 @@
 package com.sras.client.action;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +39,12 @@ public class MainCommand extends Command {
 			}
 			ctx.put("ajax_response_data", jsonStr);
 		} catch (Exception e) {
-			ctx.put("ajax_response_data", "Failed while retrieving deals!!");
+			Writer result = new StringWriter();
+			PrintWriter printWriter = new PrintWriter(result);
+			e.printStackTrace(printWriter);
+			ctx.put("ajax_response_data",
+					"Failed while retrieving deals!!" + e.getLocalizedMessage()
+							+ " :: " + result.toString());
 		}
 		return "ajax_template.vm";
 	}

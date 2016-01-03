@@ -32,8 +32,11 @@ public class FacebookLoginCommand extends Command {
 		String type = request.getParameter("ltype");
 		try {
 			HttpSession session = request.getSession();
-
-			if (type.equalsIgnoreCase("login")) {
+			Object userName = session.getAttribute("userName");
+			if (type.equalsIgnoreCase("logout")) {
+				session.invalidate();
+				session = null;
+			} else if (type.equalsIgnoreCase("login")) {
 				String loginParameters = request
 						.getParameter("loginParameters");
 				Gson gson = new Gson();
@@ -51,9 +54,11 @@ public class FacebookLoginCommand extends Command {
 				// SessionHelper.createUserSession(request, uuid,
 				// user.getId(),timeOut);s
 				log.debug("After Login UUID ::" + uuid);
-			} else {
+			} else if (type.equalsIgnoreCase("logout")) {
 				session.invalidate();
 				session = null;
+			} else if (userName != null) {
+
 			}
 		} catch (Exception e) {
 			log.debug(e);

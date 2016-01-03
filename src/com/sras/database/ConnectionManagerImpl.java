@@ -34,19 +34,16 @@ public final class ConnectionManagerImpl {
 		String driverClassName = null;
 		try {
 			if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
-				// Load the class that provides the new "jdbc:google:mysql://"
-				// prefix.
 				driverClassName = "com.mysql.jdbc.GoogleDriver";
-				url = "jdbc:google:mysql://deal70-1146:deal70db?user=root";
+				url = "jdbc:google:mysql://deal70-1164:deal70-1/deal70db";
+				Class.forName(driverClassName);
+				return DriverManager.getConnection(url, "admin", "welcome1");
 			} else {
-				// Local MySQL instance to use during development.
 				driverClassName = "com.mysql.jdbc.Driver";
 				url = "jdbc:mysql://127.0.0.1:3306/deal70?user=root";
-				// Alternatively, connect to a Google Cloud SQL instance using:
-				// jdbc:mysql://ip-address-of-google-cloud-sql-instance:3306/guestbook?user=root
+				Class.forName(driverClassName);
+				return DriverManager.getConnection(url);
 			}
-			Class.forName(driverClassName);
-			return DriverManager.getConnection(url);
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(
 					"Cannot find the SQL driver in the classpath." + " driver="

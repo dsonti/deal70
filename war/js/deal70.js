@@ -324,19 +324,20 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	$('#loginBtn').click(function(event) {
+	$('#loginBtn').click(function() {
 		checkLoginState();
 	});
+});
 
-	$('#logoutBtn').click(function(event) {
+$(document).ready(function() {
+	$('#logoutBtn').click(function() {
 		$.ajax({
 			url : $('#domainName').val() + "?ajax=true&ltype=logout",
 			type : "POST",
 			success : function(result) {
-					window.location.href = window.location.href;
+				location.reload();
 			},
-			error : function(result) {
-				alert("Error :" + result);
+			error : function(result) { 
 			}
 		});
 	});
