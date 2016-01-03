@@ -6,6 +6,10 @@
                     <a href="$!{domainName}" rel="home">
                         <img src="$!{domainName}assets/images/logo.png" alt="Site Logo">
                     </a>
+                    #if($userName)
+                    <img src="//graph.facebook.com/$!userId/picture">
+                    Welcome $!userName
+                    #end
                 </div>
                 <div class="header-highlight fleft" style="display:none">
                     <a href="#">
@@ -146,9 +150,9 @@
                             </div>
                         </li>
                         #if($userName)
-                        <li class="menu-item-has-children"><a href="user_dashboard.html"><i class="power icon"></i> Dashboard ($!userName)</a>
+                        <li class="menu-item-has-children"><a href="#"><i class="power icon"></i> Dashboard </a>
                         #else
-                        <li class="menu-item-has-children"><a href="user_dashboard.html"><i class="power icon"></i> Dashboard</a>
+                        <li class="menu-item-has-children"><a href="#"><i class="power icon"></i> Dashboard</a>
                         #end
                             <ul class="sub-menu">
                             	#if(!$userName)

@@ -1,6 +1,7 @@
 package com.sras.client.action;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,8 +40,13 @@ public class FacebookLoginCommand extends Command {
 			} else if (type.equalsIgnoreCase("login")) {
 				String loginParameters = request
 						.getParameter("loginParameters");
+
+				// {"id":"1052698364","birthday":"11/28/1982","email":"itsras@gmail.com","first_name":"Srinivas","gender":"male",
+				// "last_name":"Kummaragunta","link":"https://www.facebook.com/app_scoped_user_id/1052698364/",
+				// "location":{"id":"115200305158163","name":"Hyderabad, India"},"locale":"en_US",
+				// "name":"Srinivas Kummaragunta","timezone":5.5,"updated_time":"2015-11-23T01:37:00 0000","verified":true}
 				Gson gson = new Gson();
-				UserData user = gson.fromJson(loginParameters, UserData.class);
+				UserData user = gson.fromJson(loginParameters, UserData.class); 
 
 				int timeOut = ClientConstants.COOKIE_AGE;
 				String uuid = UUID.randomUUID().toString();
@@ -73,6 +79,7 @@ public class FacebookLoginCommand extends Command {
 	{
 		String userName = user.getName();
 		session.setAttribute("userName", userName);
+		session.setAttribute("userId", user.getId());
 		session.setAttribute("user", user);
 		session.setAttribute("uuid", uuid);
 		session.setAttribute(ClientConstants.LoginType, loginType);
@@ -87,6 +94,51 @@ public class FacebookLoginCommand extends Command {
 class UserData implements Serializable {
 	String name;
 	long id;
+	String birthday;
+	String email;
+	String first_name;
+	String last_name;
+	String gender;
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 	public String getName() {
 		return name;

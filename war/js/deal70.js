@@ -327,9 +327,7 @@ $(document).ready(function() {
 	$('#loginBtn').click(function() {
 		checkLoginState();
 	});
-});
 
-$(document).ready(function() {
 	$('#logoutBtn').click(function() {
 		$.ajax({
 			url : $('#domainName').val() + "?ajax=true&ltype=logout",

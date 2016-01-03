@@ -408,6 +408,7 @@ public class ControllerServlet extends VelocityServlet {
 		Object userName = session.getAttribute("userName");
 		if (userName != null) {
 			ctx.put("userName", (String) userName);
+			ctx.put("userId", session.getAttribute("userId"));
 		}
 		Object user = session.getAttribute("User");
 		if (user != null) {

@@ -31,10 +31,6 @@
 	    <link rel="stylesheet" href="$!{domainName}assets/css/semantic.min.css">
 	    <link rel="stylesheet" href="$!{domainName}style.css">
 	
-		<script>
-			var stores = JSON.parse('$!stores');
-			var categories = JSON.parse('$!categories');
-		</script>
 	    <!-- Header JS -->
 	    <script src="$!{domainName}assets/js/jquery-1.11.1.min.js"></script>
 	
@@ -42,7 +38,11 @@
 	    <script src="$!{domainName}js/deal70.js"></script>
 	    <script src="$!{domainName}js/jquery.timeago.js"></script>
 	    
-	
+		<script>
+			var stores = JSON.parse('$!stores');
+			var categories = JSON.parse('$!categories');
+		</script>
+			
 	    <!-- PLUGIN CSS -->
 	
 	    <link rel="stylesheet" href="$!{domainName}assets/ST-User/css/style.css">
