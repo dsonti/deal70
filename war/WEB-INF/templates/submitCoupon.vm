@@ -1,0 +1,112 @@
+<div id="content" class="site-content">
+    <section class="page-header">
+        <div class="container">
+
+            <div class="inner">
+                <div class="inner-content clearfix">
+                    <div class="header-content">
+                        <h1>Submit A Coupon</h1>
+                    </div>
+                    <div class="ui small breadcrumb">
+                        <a class="section">Home</a>
+                        <i class="right angle right icon divider"></i>
+                        <div class="active section">Submit Coupon</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="content-wrap" class="container no-sidebar">
+
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main">
+
+                <div class="entry-content content-box shadow-box">
+                    <div class="ui grid">
+                        <div class="eight wide column">
+                            <div class="ui large form">
+                                <div class="field">
+                                    <select class="ui search dropdown">
+                                        <option value="default">Select Store *</option>
+                                        <option value="1">Athleteform.com</option>
+                                        <option value="2">Amazon.co.uk</option>
+                                        <option value="3">Nature.com</option>
+                                        <option value="4">Religion.com</option>
+                                        <option value="5">Udemy.com</option>
+                                        <option value="6">Bestbuy.com</option>
+                                        <option value="7">Booking.com</option>
+                                        <option value="8">Zappos.com</option>
+                                        <option value="9">Victoriassecret.com</option>
+                                        <option value="10">Bebe.com</option>
+                                        <option value="11">Asos.com</option>
+                                        <option value="12">6pm.com</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <select class="ui dropdown">
+                                        <option value="">Offer Type *</option>
+                                        <option value="CODE">Coupon Code</option>
+                                        <option value="DEAL">Deal</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>Add code or change offer type</label>
+                                    <input type="text" placeholder="Code">
+                                </div>
+                                <div class="field ui icon input">
+                                    <input type="text" placeholder="Exp Date : dd/mm/yyyy">
+                                    <i class="calendar outline icon"></i>
+                                </div>
+                                <div class="inline field">
+                                    <div class="ui checkbox">
+                                        <input type="checkbox">
+                                        <label>Don't know the expiration date.</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <input type="text" placeholder="Offer Title">
+                                </div>
+                                <!-- <div class="field">
+                                    <div class="ui action input">
+                                        <input placeholder="Offer Image URL" type="text">
+                                    </div>
+                                </div> -->
+                                <div class="field">
+                                    <textarea placeholder="Offer Description (Small)"></textarea>
+                                </div>
+                                <div class="field">
+                                    <textarea placeholder="Offer Description (Big)"></textarea>
+                                </div>
+                                <div class="inline field">
+                                    <div class="ui checkbox">
+                                        <input type="checkbox">
+                                        <label>I agree to the Terms and Conditions</label>
+                                    </div>
+                                </div>
+                                <br>
+                                <button class="fluid ui button btn btn_primary btn_large">Submit</button>
+                            </div>
+                        </div>
+                        <div class="eight wide column">
+                            <h4>Submit Coupon Tips #1</h4>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+
+                            <h4>Note before submit:</h4>
+                            <ol>
+                                <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</li>
+                                <li>Eiusmod tempor incididunt ut labore et <a href="#">dolore magna</a> aliqua. Ut enim ad minim veniam, quis nostrud exercitation</li>
+                                <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt</li>
+                            </ol>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+
+            </main><!-- #main -->
+        </div><!-- #primary -->
+
+
+    </div> <!-- /#content-wrap -->
+
+</div> <!-- END .site-content -->

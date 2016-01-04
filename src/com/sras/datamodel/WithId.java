@@ -15,7 +15,7 @@ public abstract class WithId implements DataModel, HasId, ChangeNotifiable
 	 */
 	private static final long serialVersionUID = 3770785332609656732L;
 
-	private long id;
+	protected long id;
 
 	private boolean loaded;
 
