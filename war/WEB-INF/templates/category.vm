@@ -21,9 +21,10 @@
                 <div class="inner-content clearfix">
                     <div class="header-thumb">
                         <div class="ui center aligned icon">
-                            <i class="circular car icon"></i> 
-                            <!-- <img src="$!{domainName}assets/images/clothing_icon.png" alt=""> -->
+                            <!-- <i class="circular car icon"></i> --> 
+                            <img src="$!{domainName}assets/images/clothing_icon.png" alt="">
                         </div>
+                    	<a class="add-favorite" href="#"><i class="empty heart icon"></i><span>Favorite This Category</span></a>
                     </div>
                     <div class="header-content">
                         <h1><strong>$!catData.name </strong>Coupon and Deals</h1>

@@ -59,7 +59,19 @@ public class MainCommand extends Command {
 	}
 
 	public String doAjaxPost() throws Exception {
-		String ltype = request.getParameter("ltype");
+		// To save store & category as favorites
+		String type = request.getParameter("type");
+		String dealId = request.getParameter("id");
+		String couponId = request.getParameter("cid");
+		String storeId = request.getParameter("stid");
+		String action = request.getParameter("action");
+		if (action != null && action.equalsIgnoreCase("map")) {
+			// TODO: map to user
+		} else {
+			// unmap to user
+		}
+
+		// To handle store search in site header
 		String storeName = request.getParameter("search");
 		String jsonStr = "[]";
 		if (storeName != null && storeName.trim().length() > 0) {
@@ -70,6 +82,9 @@ public class MainCommand extends Command {
 			Gson gson = new GsonBuilder().create();
 			jsonStr = gson.toJson(stores, ArrayList.class);
 		}
+
+		// To handle facebook login & logout...
+		String ltype = request.getParameter("ltype");
 		if (ltype != null) {
 			FacebookLoginCommand cmd = new FacebookLoginCommand(request,
 					response, ctx);

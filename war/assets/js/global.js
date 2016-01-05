@@ -13,7 +13,7 @@ jQuery(document).ready(function() {
 	( function() {
 		$('#nav-toggle').click(
 			function () {
-				$('.primary-navigation .wpc-menu').toggleClass("wpc-menu-mobile");
+				$('.primary-navigation .st-menu').toggleClass("st-menu-mobile");
 			}
 		);
 		$('.nav-toggle-subarrow, .nav-toggle-subarrow .nav-toggle-subarrow').click(

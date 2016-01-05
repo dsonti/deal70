@@ -49,9 +49,9 @@
                         <li class="menu-item-has-children"><a href="${domainName}stores">Stores</a></li>
                         <li class="menu-item-has-children"><a href="${domainName}categories">Categories</a></li>
                         <!-- <li class=""><a href="#"><i class="student icon"></i> Back To School</a></li> -->
-                        <li class="">
-                            <a href="#">Locations</a>
-                            <ul>
+                        <li class="menu-item-has-children"><a>Locations</a>
+                        	<div class="nav-toggle-subarrow"><i class="plus icon"></i></div>
+                            <ul class="sub-menu">
                                 <li><a href="$!{domainName}location/Bangalore">Bangalore</a></li>
                                 <li><a href="$!{domainName}location/Chennai">Chennai</a></li>
                                 <li><a href="$!{domainName}location/Delhi">Delhi</a></li>
@@ -60,12 +60,7 @@
                                 <li><a href="$!{domainName}location/Pune">Pune</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children"><a href="page_submit.html"><i class="edit icon"></i> Submit Coupon</a>
-                            <ul>
-                                <li class=""><a href="page_submit.html">Header Normal</a></li>
-                                <li class=""><a href="page_submit_header_cover.html">Header With Cover</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#"><i class="edit icon"></i> Submit Coupon</a></li>
 
                     </ul>
                 </nav> <!-- END .primary-navigation -->
@@ -156,13 +151,12 @@
                         #end
                             <ul class="sub-menu">
                             	#if(!$userName)
-                                <li><a id="loginBtn" href="#" class="">Sign In</a></li>
+                                <li><a id="loginBtn" class="">Sign In</a></li>
                                 #end
-                                <li><a href="#" class="st-singup-btn">Register</a></li>
-                                <li><a href="user_dashboard.html">Dashboard</a></li>
-                                <li><a href="user_edit.html">Settings</a></li>
+                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="#">Profile</a></li>
                                 #if($userName)
-                                <li><a id="logoutBtn" href="#" class="">Sign Out</a></li>
+                                <li><a id="logoutBtn" class="">Sign Out</a></li>
                                 #end
                             </ul>
                         </li>
