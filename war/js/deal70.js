@@ -397,4 +397,9 @@ $(document).ready(function() {
 			}
 		});
 	});
+	$('.ui.facebook').click(function(){
+		 FB.login(function(response) {
+			 statusChangeCallback(response);
+			 }, {scope: 'public_profile,email'});
+	})
 });

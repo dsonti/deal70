@@ -6,11 +6,14 @@
                     <a href="$!{domainName}" rel="home">
                         <img src="$!{domainName}assets/images/logo.png" alt="Site Logo">
                     </a>
-                    #if($userName)
-                    <img src="//graph.facebook.com/$!userId/picture">
-                    Welcome $!userName
-                    #end
                 </div>
+
+                <div class="header-highlight fleft" style="">
+                    #if($userName)
+						<img class="ui circular image" height="52" width="52" src="//graph.facebook.com/$!userId/picture">
+                    #end
+				</div>                
+
                 <div class="header-highlight fleft" style="display:none">
                     <a href="#">
                         <div class="highlight-icon"><i class="fire icon"></i></div>
@@ -145,20 +148,18 @@
                             </div>
                         </li>
                         #if($userName)
-                        <li class="menu-item-has-children"><a href="#"><i class="power icon"></i> Dashboard </a>
-                        #else
-                        <li class="menu-item-has-children"><a href="#"><i class="power icon"></i> Dashboard</a>
-                        #end
-                            <ul class="sub-menu">
-                            	#if(!$userName)
-                                <li><a id="loginBtn" class="">Sign In</a></li>
-                                #end
+                        <li class="menu-item-has-children"><a href="#"><i class="user icon"></i> My Profile </a>
+                        	<ul class="sub-menu">
                                 <li><a href="#">Dashboard</a></li>
                                 <li><a href="#">Profile</a></li>
                                 #if($userName)
                                 <li><a id="logoutBtn" class="">Sign Out</a></li>
                                 #end
                             </ul>
+                        #else
+                        <li id="loginBtn"><a href="#"><i class="sign in icon"></i> Login</a>
+                        #end
+                            
                         </li>
                     </ul>
 

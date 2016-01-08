@@ -107,12 +107,14 @@
 #end
 
 #macro (advertisement)
+	<!--
 	<aside class="widget widget_text">
         <div class="ads-area">
             <div class="ui horizontal divider">Advertisement</div>
             <a href="#"><img src="$!{domainName}assets/images/300.png" alt=""></a>
         </div>
     </aside>
+    -->
 #end
 
 #macro (mostViewedCategories)

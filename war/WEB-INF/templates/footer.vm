@@ -6,24 +6,6 @@
                         <aside class="widget">
                             <div class="widget_content">
                                 <p><a href="#"><img src="$!{domainName}assets/images/logo.png" alt=""></a></p>
-                                <p>Search the biggest database of coupons on the planet, <br>connect with friends with our coupon apps</p>
-                                <!-- <p>Search the biggest database of coupons on the planet. Connect with friends and see what coupons they’re snipping. Or just browse through featured coupons from your favorite stores.</p> -->
-                                <div class="clearfix">
-                                    <a href="#" class="app-button apple-button clearfix">
-                                        <div class="fleft"><i class="apple icon"></i></div>
-                                        <div class="fright">
-                                            <span class="avail-text">Available for</span>
-                                            <span class="app-service">App Store</span>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="app-button android-button clearfix">
-                                        <div class="fleft"><i class="android icon"></i></div>
-                                        <div class="fright">
-                                            <span class="avail-text">Available for</span>
-                                            <span class="app-service">Android</span>
-                                        </div>
-                                    </a>
-                                </div>
                             </div>
                         </aside>
                     </div>
@@ -33,10 +15,9 @@
                             <div class="widget_content">
                                 <ul>
                                     <li><a href="#">Our History</a></li>
-                                    <li><a href="#">Careers</a></li>
-                                    <li><a href="#">Investor</a></li>
-                                    <li><a href="#">Blog News</a></li>
-                                    <li><a href="#">Affiliate</a></li>
+                                    <li><a href="#">Vision</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
                                 </ul>
                             </div>
                         </aside>
@@ -47,7 +28,6 @@
                             <div class="widget_content">
                                 <ul>
                                     <li><a href="#">Support Forum</a></li>
-                                    <li><a href="#">Press Room</a></li>
                                     <li><a href="#">How to Use</a></li>
                                     <li><a href="#">Discounts Guide</a></li>
                                     <li><a href="#">Contact Us</a></li>
@@ -57,7 +37,7 @@
                     </div>
                     <div class="four wide column">
                         <aside class="widget">
-                            <h4 class="widget_heading">WP Coupon Premier</h4>
+                            <h4 class="widget_heading">Subscribe to Deal70</h4>
                             <div class="newsletter-box-wrapper">
                                 <form id="newsletter-box">
                                     <div class="ui action left icon input">
@@ -86,13 +66,10 @@
             </div>
 
             <div class="footer_copy">
-                <p>Copyright &copy; WP Coupon Inc. All Rights Reserved. Template by <a href="http://www.smooththemes.com">SmoothThemes</a></p>
+                <p>Copyright &copy; Deal70. All Rights Reserved. Template by <a href="http://www.smooththemes.com">SmoothThemes</a></p>
                 <nav id="footer-nav" class="site-footer-nav">
                     <ul>
                         <li><a href="#">Welcome</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                        <li><a href="#">Partner</a></li>
-                        <li><a href="#">Careers</a></li>
                         <li><a href="#">Terms of Use</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">License</a></li>
