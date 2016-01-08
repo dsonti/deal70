@@ -1,6 +1,8 @@
 package com.sras.client.action;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +15,8 @@ import net.tanesha.recaptcha.ReCaptchaResponse;
 import org.apache.log4j.Category;
 import org.apache.velocity.context.Context;
 
+import com.sras.api.ServiceBean;
+import com.sras.api.impl.ServiceBeanImpl;
 import com.sras.client.utils.ClientConstants;
 import com.sras.client.utils.Utilities;
 
@@ -28,11 +32,23 @@ public abstract class Command {
 	public boolean isGet;
 	public boolean isAjax;
 
+	public static ServiceBeanImpl serviceBean = ServiceBeanImpl.getInstance();
+	public String requestURI;
+
 	public Command(HttpServletRequest request, HttpServletResponse response,
 			Context ctx) {
 		this.request = request;
 		this.response = response;
 		this.ctx = ctx;
+
+		requestURI = (String) ctx.get("requestURI");
+		try {
+			requestURI = (requestURI != null) ? URLDecoder.decode(requestURI,
+					"UTF-8") : "";
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		this.isPost = request.getMethod().equalsIgnoreCase("post");
 		this.isGet = request.getMethod().equalsIgnoreCase("get");

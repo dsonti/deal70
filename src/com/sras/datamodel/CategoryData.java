@@ -12,6 +12,7 @@ public class CategoryData extends WithId {
 	public Date createDate;
 	public Date updateDate;
 	public String createdBy;
+	public boolean isPopular;
 
 	public String getName() {
 		return name;
@@ -51,6 +52,14 @@ public class CategoryData extends WithId {
 
 	public void setViewCount(Long viewCount) {
 		this.viewCount = viewCount;
+	}
+
+	public boolean isPopular() {
+		return isPopular;
+	}
+
+	public void setPopular(boolean isPopular) {
+		this.isPopular = isPopular;
 	}
 
 	public Date getCreateDate() {
