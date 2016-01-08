@@ -11,9 +11,14 @@ public interface ServiceBean {
 	 */
 	public ArrayList<DataModel> getAllDeal();
 
-	public ArrayList<DataModel> getAllDeals(long storeId, long categoryId);
+	public ArrayList<DataModel> getAllDeals(long storeId, long categoryId,
+			String location);
 
-	public ArrayList<DataModel> getAllDeals(String locationName);
+	public ArrayList<DataModel> getPopularDeals(long storeId, long categoryId,
+			String location);
+
+	public ArrayList<DataModel> getHotDeals(long storeId, long categoryId,
+			String location);
 
 	public DataModel getDeal(long dealId);
 
@@ -23,13 +28,19 @@ public interface ServiceBean {
 
 	public ArrayList<DataModel> getAllStores(String storeName);
 
-	public ArrayList<DataModel> getFavoriteStore(long userId);
+	public ArrayList<DataModel> getFavoriteStores(long userId);
+
+	public ArrayList<DataModel> getPopularStores(long userId);
+
+	public ArrayList<DataModel> getNearByStores(long userId);
 
 	public DataModel getCategoryDetails(long id);
 
 	public ArrayList<DataModel> getAllCategories();
 
 	public ArrayList<DataModel> getFavoriteCategories(long userId);
+
+	public ArrayList<DataModel> getPopularCategories(long userId);
 
 	public DataModel getLoction(String name);
 
